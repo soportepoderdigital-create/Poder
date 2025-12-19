@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Poder Digital - Oportunidades Reales</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    padding:0;
+    background:#f7f7f7;
+}
+
+/* ---------------- BOTONES ---------------- */
+.botones{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:10px;
+}
+
+.btn-buy{
+    background:#ff7a00;
+    padding:12px 30px;  
+    font-weight:bold;
+    border-radius:8px;
+    text-decoration:none;
+    color:white;
+    min-width:160px;
+    text-align:center;
+}
+
+.btn-qr{
+    background:#d6d6d6;
+    color:#000;
+    padding:12px 18px;
+    border-radius:8px;
+    font-weight:bold;
+    min-width:70px;
+}
+
+/* ---------------- HEADER ---------------- */
+header{
+    background:#000;
+    color:white;
+    padding:40px 20px;
+    text-align:center;
+}
+
+/* ---------------- CONTENEDORES ---------------- */
+section{
+    padding:30px 20px;
+    max-width:900px;
+    margin:auto;
+}
+
+.carta{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+/* ---------------- CATEGORÍAS ---------------- */
+.category{
+    background:white;
+    margin:20px 0;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.08);
+}
+
+.category-header{
+    display:flex;
+    justify-content:space-between;
+    cursor:pointer;
+    padding:10px;
+    font-size:20px;
+}
+
+.gallery{
+    display:none;
+    margin-top:15px;
+}
+
+.course{
+    background:#fafafa;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:20px;
+    box-shadow:0 0 5px rgba(0,0,0,0.05);
+    text-align:center;
+}
+
+.course img{
+    width:100%;
+    border-radius:8px;
+}
+
+/* ---------------- QR CENTRADO ---------------- */
+#qr-overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+
+    display:none; /* OCULTO AL INICIO */
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+#qr-overlay img{
+    width:80vw;
+    max-width:350px;
+    border-radius:20px;
+}
+
+.cerrar{
+    position:absolute;
+    top:25px;
+    right:25px;
+    font-size:35px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ---------------- WHATSAPP ---------------- */
+.whatsapp-bubble{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25d366;
+    color:white;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:34px;
+    text-decoration:none;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+/* ---------------- FOOTER ---------------- */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#000;
+    color:white;
+    margin-top:40px;
+}
+</style>
+
+<script>
+function toggleGallery(id){
+    let g = document.getElementById(id);
+    g.style.display = g.style.display === "block" ? "none" : "block";
+}
+
+function mostrarQR(ruta){
+    document.getElementById("qr-overlay-img").src = ruta;
+    document.getElementById("qr-overlay").style.display = "flex";
+}
+
+function cerrarQR(){
+    document.getElementById("qr-overlay").style.display = "none";
+}
+</script>
+
+</head>
+<body>
+
+<!-- ---------------- QR OVERLAY ---------------- -->
+<div id="qr-overlay">
+    <span class="cerrar" onclick="cerrarQR()">✕</span>
+    <img id="qr-overlay-img" src="">
+</div>
+
+<!-- ---------------- HEADER ---------------- -->
+<header>
+    <h1>☆☆☆☆☆☆☆☆☆☆☆☆☆</h1>
+    <p>Oportunidades Reales Para Cambiar Tu Futuro</p>
+</header>
+
+<!-- ---------------- CARTA MILLONARIA ---------------- -->
+<section>
+    <div class="carta">
+        <h2>La Carta Millonaria</h2>
+        <p>Dentro de este espacio existen secretos y accesos que muy pocos encuentran. Si eres de las personas capaces de ver algo diferente, algo poderoso… no lo ignores. Las oportunidades que cambian vidas no permanecen abiertas para siempre.
+
+Te lo digo directo: quienes aprenden, ganan. La vida no cambia sola; cambia cuando tú decides moverte. Los negocios millonarios no nacen de la suerte, sino de un método. Hoy tienes acceso a ese método: un sistema probado, diseñado para generar resultados reales y repetibles.
+
+Muchas personas alcanzan ingresos altos y recurrentes porque entienden esta verdad: el conocimiento correcto lo cambia todo. Cuando dominas una habilidad valiosa, el dinero deja de ser un problema para siempre.
+
+Invierte en ti. El momento perfecto siempre llega cuando tú decides avanzar. Aquí empieza tu siguiente nivel.…</p>
+    </div>
+</section>
+
+<!-- *************************************************************** -->
+<!-- ********************** CATEGORÍAS ***************************** -->
+<!-- *************************************************************** -->
+
+<!-- ========= CATEGORÍA 1 ========= -->
+<section>
+    <div class="category">
+        <div class="category-header" onclick="toggleGallery('gal1')">
+            <span>✅ 1) MARKETING DIGITAL AFILIADOS / FACELESS / REVENTA / E-COMMERCE →</span>
+            <span>+</span>
+        </div>
+
+        <div id="gal1" class="gallery">
+                <h3>Estás frente a una categoría que transforma principiantes en estrategas y estrategas en dueños del mercado.
+Más de 270 productos diseñados para que domines afiliados, contenido faceless, reventa, e-commerce 4.0, Shopify, TikTok, Instagram, funnels y recursos MRR/PLR.
+Aquí aprendes a vender más, automatizar todo y escalar sin límites.
+Tu próximo salto digital empieza ahora...</h3>
+            <!-- CURSO 1 -->
+          <div class="course">
+                <img src="imagenes/Emprende 2025 A0022.JPG">
+                <h3>
+"Pack Emprendedor Digital: De Cero a Rentabilidad"</h3>
+                PACK EBOOK EMPRENDEDOR DIGITAL
+
+  <li><strong>Entiende cómo ganar dinero en internet desde cero</strong></li>
+
+  <li><strong>Crea ingresos online reales y escalables</strong></li>
+
+  <li><strong>Construye un negocio digital sólido</strong></li>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H" class="btn-buy">EXPLORAR</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode emprender 2025.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H?ap=27bf" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode pago emprendedor .png')">QR</button>
+                </div>
+                  </div>
+            <div class="course">
+                <img src="imagenes/Marketing de Afiliados Tu Pasaporte a Ganancias.jpg">
+                  <h2>🚀"Marketing de Afiliados, Tu Pasaporte a Ganancias"🚀</h2>
+
+   <p style="text-align:center;"
+  </p> <strong>EBOOK–CURSO INTRODUCTORIO</strong> </p></li>
+  <li><strong>Claves del Marketing de Afiliados</strong></li>
+  <li><strong>Selección de productos rentables</strong></li>
+  <li><strong>Domina estrategias persuasivas </strong></li>
+  "Descubre cómo aprovechar las oportunidades más lucrativas que Internet ofrece hoy"</li>
+</ul>
+ 
+ 
+ 
+ 
+ 
+                <div class="botones">
+                    <a href="https://go.hotmart.com/V103169546A?dp=1" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Marketing de Afiliados Tu Pasaporte a Ganancias.png')">QR</button>
+                </div>
+                   </div>
+             <div class="course">
+                <img src="imagenes/47 Productos en Español.png">
+                                  <h2>🚀"PLR 47 Productos PLR en Epañol"🚀</h2>
+                                  
+       <p style="text-align:center;"                           
+<ul> MATERIA PRIMA DIGITAL CON DERECHOS COMERCIALES BASE PARA EMPRENDER
+  <li><strong>Revende el paquete completo:</strong> Gana vendiendo los 47 productos juntos.</li>
+  <li><strong>Revende productos por separado:</strong> Vende cada infoproducto en distintos nichos.</li>
+  <li><strong>Crea nuevos productos (PLR):</strong> Edita, reescribe y vende como propios.</li>
+</ul>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/R103156135H" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 47 Productos PLR en Español.png')">QR</button>
+                </div>
+ <div class="botones">
+                    <a href="https://go.hotmart.com/R103156135H?dp=1" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode carrito 47 Productos en Español.png')">QR</button>
+            </div>
+                        </div>
+                  <div class="course">
+                <img src="imagenes/10 GUIAS DE MARKETING DIGITAL  Con derechos de reventa.png">
+                <h3>
+¡10 GUIAS DE MARKETING DIGITAL  Con derechos de reventa</h3>
+<ol>
+  <li>60 días de contenido faceless</li>
+  <li>111 ideas para crear e-books</li>
+  <li>150 ganchos virales</li>
+  <li>Guía completa de Reels Faceless</li>
+  <li>100 CTAs y 300 prompts</li>
+  <li>Vender con historias (storytelling)</li>
+  <li>Optimización de la bio de Instagram</li>
+  <li>Creación de e-books con ChatGPT</li>
+  <li>Plantillas editables para Instagram</li>
+  <li>Dominio de Canva para diseño profesional</li>
+</ol>
+                <div class="botones">
+                    <a href="https://go.hotmart.com/K103152649Q" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 10 GUIAS DE MARKETING DIGITAL  Con derechos de reventa.png')">QR</button>
+                </div>
+                
+ <div class="botones">
+                    <a href="https://go.hotmart.com/Y103165955Q?ap=724f" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Negocio Digital Express Cómo Crear y Monetizar tu Tienda Online en 30 Días.png')">QR</button>
+            </div>
+       </div>
+              <div class="course">
+                <img src="imagenes/40 Trucos y estrategias de marketing digital para tiendas de ropa.jpg">
+                <h3>
+40 Trucos y estrategias de marketing digital para tiendas de ropa</h3>
+<ul>
+  <li>📘 Acceso a un eBook con 40 trucos prácticos de marketing digital para tiendas de ropa.</li>
+  <li>🚀 Estrategias listas para aplicar desde el primer día, incluso sin experiencia.</li>
+  <li>📈 Aprende a atraer más clientes y aumentar consultas por tus prendas.</li>
+  <li>📣 Mejora la promoción de tu tienda en internet sin diseñadores ni programadores.</li>
+  <li>💰 Técnicas probadas para vender más con poco presupuesto.</li>
+  <li>📱 Formato PDF descargable, accesible desde celular, tablet u ordenador.</li>
+</ul>
+                <div class="botones">
+                    <a href="https://go.hotmart.com/T103165128G" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 40 Trucos y estrategias de marketing digital para tiendas de ropa.png')">QR</button>
+                </div>
+                
+ <div class="botones">
+                    <a href="https://go.hotmart.com/T103165128G?ap=6b42" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode check out 40 Trucos y estrategias de marketing digital para tiendas de ropa.png')">QR</button>
+            </div> 
+            </div> 
+            <!-- CURSO 2 -->
+         <div class="course">
+                <img src="imagenes/Ecommerce 4 punto 0 Emprende con una tienda virtual sorprendente.jpg">
+                <h3>🔥"E-commerce 4.0: Emprende con una tienda virtual sorprendente"</h3> 
+                <p>🚀 Crea y automatiza una tienda online con IA</p>
+<p>📈 Escala el e-commerce y aumenta las ventas</p>
+<p>⚖️ Vende de forma legal y segura</p>.
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/J103165995L" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Ecommerce 4 punto 0 Emprende con una tienda virtual sorprendente.png')">QR</button>
+
+                </div>
+            </div>
+
+            <!-- CURSO 3 -->
+                <div class="course">
+                <img src="imagenes/50 Cursos sobre Tecnologia.jpg">
+                <h3>💡+50 cursos Sobre tecnologia🚀</h3>
+<ul>
+  <li>💡 Acceso a más de <strong>50 cursos completos</strong> sobre tecnología.</li>
+  <li>🎓 Cursos en <strong>español e inglés</strong>, para aprender sin límites.</li>
+  <li>🚀 Aprende <strong>programación, desarrollo web, bases de datos e inteligencia artificial</strong>.</li>
+  <li>🎨 Incluye formación en <strong>diseño gráfico</strong> y habilidades digitales modernas.</li>
+  <li>📈 Contenidos <strong>actualizados y en alta demanda</strong> en el mercado laboral.</li>
+  <li>⚡ Diseñados para <strong>aprender rápido</strong> y aplicar de inmediato.</li>
+  <li>💼 Impulsa tu <strong>crecimiento profesional</strong> y tus oportunidades laborales.</li>
+  <li>🌍 Ideal para quienes quieren <strong>dominar el mundo digital</strong>.</li>
+</ul>
+                <div class="botones">
+                    <a href="https://go.hotmart.com/P103130758P" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 50 Cursos sobre Tecnologia.png')">QR</button>
+                </div>
+</div>
+</div>
+    </div>
+</section>
+
+<!-- ================================== -->
+<!-- ⭐ CATEGORÍA 2 ⭐ -->
+<!-- ================================== -->
+<section>
+    <div class="category">
+        <div class="category-header" onclick="toggleGallery('gal2')">
+            <span>✅ 2) PLANTILLAS/ DISEÑO/ CANVA / MOCKUPS / CONTENIDO VISUAL /STICKERS🚀✨
+.  </span>
+            <span>+</span>
+        </div>
+
+        <div id="gal2" class="gallery">
+   <h3>Impulso creado para quienes quieren resultados profesionales sin perder tiempo.
+Aquí encuentras 25 productos diseñados para transformar cualquier idea en piezas que parecen hechas en un estudio: plantillas editables en Canva, reels listos para publicar, mockups premium y recursos visuales que multiplican el impacto en redes.
+
+Si quieres crear contenido rápido, atractivo y que venda, esta es la herramienta que otros desearían tener antes.
+Tu próxima creación memorable empieza ahora.   <h3>
+            <!-- CURSO 1 -->
+            <div class="course">
+                <img src="imagenes/3000 Videos Faceless Aesthetic para Reels Bono de videos dopamina PLR & MRR.jpg">
+<h3>+3000 Videos Faceless Aesthetic para Reels + Bono de videos dopamina PLR & MRR</h3>
+
+<ul>
+  <li>🔥 Acceso inmediato a <strong>+3000 videos Faceless Aesthetic</strong> listos para publicar.</li>
+  <li>🎯 Contenido diseñado para <strong>detener el scroll</strong> y captar miradas en segundos.</li>
+  <li>🚀 Dale a tus Reels y TikToks un <strong>look profesional sin mostrar tu cara</strong>.</li>
+  <li>⏳ Publica más, crea menos: <strong>ahorra tiempo</strong> y mantén constancia.</li>
+  <li>🎁 <strong>Bono potente:</strong> +350 videos dopamina que elevan emociones y engagement.</li>
+  <li>💼 Incluye <strong>derechos MRR + PLR</strong> para editar, reutilizar o revender.</li>
+  <li>💸 Convierte este contenido en <strong>audiencia, autoridad o ingresos extra</strong>.</li>
+</ul>
+                <div class="botones">
+                    <a href="https://go.hotmart.com/L103158907X" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 3000 Videos Faceless Aesthetic para Reels Bono de videos dopamina PLR & MRR.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/L103158907X?ap=4a8a" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode order bump 3000 Videos Faceless Aesthetic para Reels Bono de videos dopamina PLR & MRR.png')">QR</button>                </div>
+            </div>
+            <div class="course">
+                <img src="imagenes/100 Prompts para Impulsar tu Negocio Autor Meléndez.png">
+                <h3>🚀 100 Prompts para Impulsar tu Negocio</h3>
+<ul>
+  <li>Aprende estrategias de marketing digital modernas y aplicables desde el primer día.</li>
+  <li>Accede a herramientas prácticas y recursos listos para usar en tus proyectos.</li>
+  <li>Ahorra tiempo creando contenido y automatizando procesos con inteligencia artificial.</li>
+  <li>Mejora el engagement y la conexión con tu audiencia en redes sociales.</li>
+  <li>Domina el uso de la IA para optimizar campañas, textos y estrategias digitales.</li>
+  <li>Obtén conocimientos claros y organizados, ideales para principiantes y emprendedores.</li>
+</ul>
+                <div class="botones">
+                    <a href="https://go.hotmart.com/M103167817D" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 100 Prompts para Impulsar tu Negocio Autor Meléndez.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/M103167817D?ap=41d1" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode check out mas 100 Prompts para Impulsar tu Negocio Autor Meléndez.png')">QR</button>                </div>
+            </div>
+            <!-- CURSO 2 -->
+                <div class="course">
+                <img src="imagenes/2000 videos listos para monetizar sin mostrar tu rostro con derechos de reventa MMR PRL 4 guías bonnus para monetizar Autor diego arias.png">
+                <h3>2.000 videos listos para monetizar sin mostrar tu rostro con derechos de reventa MMR /PRL+ 4 guías bonnus para monetizar</h3>
+                <ul>
+  <li>💰 Gana dinero desde tu celular sin jefes ni horarios</li>
+  <li>🎭 Monetiza sin mostrar tu rostro, 100% anónimo</li>
+  <li>🎬 Accede a 2000 videos listos para crear contenido viral</li>
+  <li>📘 Incluye 4 guías con derechos de reventa incluidos</li>
+  <li>📈 Aprende a crecer seguidores y generar ingresos en redes</li>
+  <li>🚀 Construye una marca digital rentable sin aparecer en cámara</li>
+</ul>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/D103156373L" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 2000 videos listos para monetizar sin mostrar tu rostro con derechos de reventa MMR PRL 4 guías bonnus para monetizar Autor diego arias.png')">QR</button>
+                </div>
+   
+            </div>
+
+            <!-- CURSO 3 -->
+            <div class="course">
+                <img src="imagenes/1400 Videos Aesthetic Faceless Femeninos Con derechos de reventa Autor MFC.png">
+                <h3>🚀1400 Videos Aesthetic Faceless| Femeninos | Con derechos de reventa</h3>
+<ul style="list-style: none; padding-left: 0; line-height: 1.6;">
+  <li>✨ Acceso inmediato a <strong>1400 videos Aesthetic Faceless femeninos</strong>, listos para usar</li>
+  <li>📱 Contenido ideal para <strong>Instagram Reels, TikTok y Shorts</strong></li>
+  <li>👩‍💻 Publica sin mostrar tu rostro y mantén tu <strong>anonimato</strong></li>
+  <li>💼 Incluye <strong>derechos de reventa</strong> para generar ingresos </li>
+  <li>⏱️ Ahorra tiempo creando contenido con <strong>videos profesionales y virales</strong></li>
+  <li>📈 Perfecto para <strong>crecer seguidores, engagement y monetizar</strong> tus redes</li>
+</ul>
+                <div class="botones">
+                    <a href="https://go.hotmart.com/R103153500O?ap=d18a" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 1400 Videos Aesthetic Faceless Femeninos Con derechos de reventa Autor MFC.png')">QR</button>
+                </div>
+
+             </div>
+
+            <!-- CURSO 3 -->
+
+           <div class="course">
+                <img src="imagenes/1200 VIDEOS COLECCIÓN DE LUJO DERECHOS DE REVENTA.jpg">
+                <h3>¡Lanzamiento exclusivo: +1.200 VIDEOS COLECCIÓN DE LUJO + DERECHOS DE REVENTA!</h3>
+<ul>
+  <li>🎥 +1.200 videos Aesthetic de lujo listos para usar en Instagram, TikTok, YouTube Shorts y más.</li>
+  <li>🕶️ Contenido 100% Faceless: crea y vende sin mostrar tu rostro.</li>
+  <li>📘 Material práctico en formato eBooks o documentos, totalmente en español.</li>
+  <li>💼 Derechos de Reventa Maestra (MRR):y genera ingresos ilimitados.</li>
+  <li>💸 Compra única: sin pagos mensuales ni costos ocultos.</li>
+  <li>🚀 Aumenta interacción, seguidores y autoridad digital con contenido premium.</li>
+  <li>⏱️ Ahorra tiempo y dinero en la creacion de contenido.</li>
+</ul>
+                <div class="botones">
+                    <a href="https://go.hotmart.com/P103148991C?dp=1" class="btn-buy">EXPLORA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 1200 VIDEOS COLECCIÓN DE LUJO DERECHOS DE REVENTA.png')">QR</button>
+     </div>
+                </div>
+                          <div class="course">
+                <img src="imagenes/800 Videos faceless  Hombre  Con derechos de reventa.jpg">
+                <h3>800 Videos faceless | Hombre | Con derechos de reventa </h3>
+<ul>
+  <li>🎬 800 videos Faceless enfocados en temática masculina, listos para publicar.</li>
+  <li>👔 Estilo moderno y profesional ideal para marcas, negocios y cuentas personales.</li>
+  <li>💼 Incluye Derechos de Reventa: vende el contenido y genera ingresos digitales.</li>
+  <li>📱 Perfectos para Instagram Reels, TikTok, Shorts y otras plataformas.</li>
+  <li>⚡ Contenido optimizado para captar atención y mejorar el alcance.</li>
+  <li>⏳ Ahorra tiempo creando contenido sin grabar ni editar.</li>
+</ul>
+                <div class="botones">
+                    <a href="https://go.hotmart.com/H103152558A?ap=28b5" class="btn-buy">EXPLORA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode check out 800 Videos faceless  Hombre  Con derechos de reventa.png')">QR</button>
+                </div>
+                 </div>                        <div class="course">
+                <img src="imagenes/600 Plantillas Femeninas para Instagram Reels  Faceless Videos Sin Rostro Contenido Editable.jpg">
+                <h3> Sin Rostro +Contenido Editable para Instagram + Derechos de Reventa</h3>
+<ul>
+  <li>🎬 <strong>600+ Plantillas femeninas para Reels</strong> en alta definición (1920x1080px), listas para usar.</li>
+  <li>🎀 <strong>Diseños modernos, estéticos y elegantes</strong> con estilo femenino que destaca en Instagram.</li>
+  <li>🛍️ <strong>Derechos MRR/PLR incluidos</strong>: edita, personaliza, marca y revende como tu propio producto.</li>
+  <li>✏️ <strong>100% editables en Canva</strong> (recomendado Canva Pro), sin conocimientos técnicos.</li>
+  <li>🙈 <strong>Contenido sin rostro</strong>, ideal para marketing digital,y marcas personales.</li>
+  <li>⏱️ <strong>Ahorra más de 50 horas</strong> de creación de contenido y publica en minutos.</li>
+  <li>📥 <strong>Acceso inmediato</strong> mediante descarga en PDF después de la compra.</li>
+</ul>
+                <div class="botones">
+                    <a href="https://go.hotmart.com/G103156280J?dp=1" class="btn-buy">EXPLORA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 600 Plantillas Femeninas para Instagram Reels  Faceless Videos Sin Rostro Contenido Editable.png')">QR</button>
+                </div>
+            </div>
+    </div>
+</section>
+
+<section>
+    <div class="category">
+        <div class="category-header" onclick="toggleGallery('gal3')">
+            <span>✅ 3) TIENDAS/ NEGOCIOS  FISICOS/ FRANQUICIAS / MICRO NEGOCIOS  </span>
+            <span>+</span>
+        </div>
+
+        <div id="gal3" class="gallery">
+   <h3> → ~25 productos 
+     Acceso a categoría creada para quien quiere emprender hoy, sin excusas y sin complicaciones.
+Productos diseñados para arrancar negocios reales —tiendas físicas, tiendas online, franquicias listas para operar y micro negocios rentables con pasos claros y probados.
+
+Este es el camino más rápido para autoapalancarte, vender y ver resultados sin grandes inversiones.
+Conceptos listos, sistemas simples, ideas validadas.
+Si buscabas empezar con claridad, velocidad y una ruta que ya funciona… acabas de encontrarla.
+
+Tu nuevo negocio empieza aquí..   <h3>
+            <!-- CURSO 1 -->
+            <div class="course">
+                <img src="imagenes/Emprende 2025 A0022.JPG">
+                <h3>Curso Emprender 2025</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H" class="btn-buy">EXPLORAR</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode emprender 2025.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H?ap=27bf" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode pago emprendedor .png')">QR</button>
+                </div>
+            </div>
+
+            <!-- CURSO 2 -->
+            <div class="course">
+                <img src="imagenes/NegocioDigitalExpress1.png">
+                <h3>Curso Negocios Digitales</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103165955Q" class="btn-buy">EXPLORA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode explora Negocio Digital Express.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103165955Q?ap=724f" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Negocio Digital Express Cómo Crear y Monetizar tu Tienda Online en 30 Días.png')">QR</button>
+                </div>
+            </div>
+
+            <!-- CURSO 3 -->
+            <div class="course">
+                <img src="imagenes/DWA Digital Wealth Academy con Derechos de Reventa.png">
+                <h3>🌐 
+(DWA)"Digital Wealth Academy con Derechos de Reventa".
+
+El curso DWA se posiciona como una de las guías más completas de marketing digital para principiantes. Disponible en varios idiomas, ofrece instrucciones paso a paso que abarcan desde el lanzamiento hasta el crecimiento de un negocio online. Incluye módulos en video sobre embudos de ventas, email marketing, automatización, marketing de afiliados y más. Además, destaca por enseñar a vender productos digitales sin necesidad de crearlos, gracias a sus lecciones sobre derechos de reventa y etiqueta privada. El programa también profundiza en la configuración de sistemas automatizados diseñados para generar ingresos pasivos, convirtiéndolo en una opción atractiva para quienes buscan iniciar o profesionalizar su presencia en el comercio digital</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/W103153445A?ap=08a6" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('mostrarQR('imagenes/qrcode DWA Digital Wealth Academy con Derechos de Reventa.png')">QR</button>
+                </div>
+                   </div>
+                           <div class="course">
+                <img src="imagenes/CREA TU PROPIA FRANQUICIA DESDE CERO.jpg">
+                <h3>🌐 
+Franuicia digital</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/W103153445A?ap=08a6" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('mostrarQR('imagenes/qrcode CREA TU PROPIA FRANQUICIA DESDE CERO.png')">QR</button>
+                </div>
+
+    
+        </div>
+    </div>
+</section>
+<section>
+    <div class="category">
+        <div class="category-header" onclick="toggleGallery('gal4')">
+            <span>✅ 4) TECNOOLOGIA IA / AUTOMATIZACION / BOTS / SOFTWARE →  </span>
+            <span>+</span>
+        </div>
+
+        <div id="gal4" class="gallery">
+   <h3>🚀 Tecnología al Máximo: La categoría que impulsa el futuro digital
+Un catálogo de ~10 productos diseñados para quienes quieren ir un paso adelante. Aquí se reúne lo más actual en Inteligencia Artificial, automatización, bots y software, junto a herramientas listas para lanzar tiendas digitales de videojuegos.   <h3>
+            <!-- CURSO 1 -->
+            <div class="course">
+                <img src="imagenes/Emprende 2025 A0022.JPG">
+                <h3>Curso Emprender 2025</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H" class="btn-buy">EXPLORAR</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode emprender 2025.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H?ap=27bf" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode pago emprendedor .png')">QR</button>
+                </div>
+            </div>
+
+            <!-- CURSO 2 -->
+            <div class="course">
+                <img src="imagenes/NegocioDigitalExpress1.png">
+                <h3>Curso Negocios Digitales</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103165955Q" class="btn-buy">EXPLORA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode explora Negocio Digital Express.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103165955Q?ap=724f" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Negocio Digital Express Cómo Crear y Monetizar tu Tienda Online en 30 Días.png')">QR</button>
+                </div>
+            </div>
+
+            <!-- CURSO 3 -->
+            <div class="course">
+                <img src="imagenes/Automatizacion de Redes Sociales.jpg">
+                <h3>Curso Mindset Millonario</h3>
+
+                     <div class="botones">
+                    <a href="https://go.hotmart.com/K103127383A" class="btn-buy">EXPLORA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Automatizacion de Redes Sociales.png')">QR</button>
+
+                </div>
+            </div>
+               <div class="course">
+                <img src="imagenes/50 Cursos sobre Tecnologia.jpg">
+                <h3>💡+50 cursos Sobre tecnologia🚀¡Desata tu potencial tecnológico!.¿Quieres dominar el mundo digital?Aquí tienes la oportunidad que estabas esperando:🎓Lo que obtienes:Más de 50 cursos en español e inglés, cursos de todo tipo de tecnología,diseñados para que aprendas rápido y de los mejores programación,bases de datos,inteligencia artificial,desarrollo web hasta diseño gráfico…¡y mucho más! todos los cursos en demanda, perfectos para tu crecimiento profesional.No dejes pasar esta oportunidad de llevar tus habilidades al siguiente nivel.¡Consígue los todos y conviértete en un experto en tecnología!</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/P103130758P" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 50 Cursos sobre Tecnologia.png')">QR</button>
+                </div>
+                        </div>
+            <div class="course">
+                <img src="imagenes/Curso Vende por WhatsApp sin Tienda Online  Rápido Fácil y desde Cero.jpg">
+                <h3>Curso Mindset Millonario</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/M103165788S?dp=1" class="btn-buy">EXPLORA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Curso Vende por WhatsApp sin Tienda Online Rápido Fácil y desde Cero.png')">QR</button>
+
+                </div>
+
+        </div>
+    </div>
+</section>
+<section>
+    <div class="category">
+        <div class="category-header" onclick="toggleGallery('gal5')">
+            <span>✅ 5) MAGIA /STICKERS /ENTRETENIMIENTO.PUERTA A OTRO NIVEL 🚀✨
+
+ ✨.</span>
+            <span>+</span>
+        </div>
+
+        <div id="gal5" class="gallery">
+   <h3>Categoría de la imaginación infinita aqui cada idea puede llegar más lejos.
+
+Aquí te abres paso a un universo donde conviven trucos de magia que sorprenden, libros para colorear que despiertan tu genio creativo,kits únicos diseñados para ofrecer experiencias que no encontrarás en ningún otro lugar.
+
+Si buscabas algo diferente…
+lo acabas de encontrar.
+
+Tu próxima experiencia extraordinaria empieza aquí.   <h3>
+            <!-- CURSO 1 -->
+            <div class="course">
+                <img src="imagenes/magia.jpg">
+                <h3>MAGIA</h3>
+
+               <div class="botones">
+                    <a href="https://go.hotmart.com/P103144418P" class="btn-buy">EXPLORAR</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode magia.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/P103144418P?dp=1" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode check out magia.png')">QR</button>
+                </div>
+            </div>
+
+            <!-- CURSO 2 -->
+            <div class="course">
+                <img src="imagenes/4000 Mega Sticker Bundle PNG Diseños Anime Kawaii Cartoons Variedad de Temas y Franquicias Populares.jpg">
+                <h3>4000+ Mega Sticker Bundle PNG Diseños Anime, Kawaii, Cartoons, Variedad de Temas y Franquicias Populares ⭐</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Q103180230I" class="btn-buy">EXPLORA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 4000 Mega Sticker Bundle PNG Diseños Anime Kawaii Cartoons Variedad de Temas y Franquicias Populares.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103165955Q?ap=724f" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Negocio Digital Express Cómo Crear y Monetizar tu Tienda Online en 30 Días.png')">QR</button>
+                </div>
+            </div>
+
+            <!-- CURSO 3 -->
+            <div class="course">
+                <img src="imagenes/g">
+                <h3>Curso Mindset Millonario</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/J103165995L" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qr3.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="#" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qr3.png')">QR</button>
+                </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="category">
+        <div class="category-header" onclick="toggleGallery('gal6')">
+            <span>✅ 6) CURSOS/ EDUCACION/ EBOOKS GENERALES / AUTOAYUDA → 
+  </span>
+            <span>+</span>
+        </div>
+
+        <div id="gal6" class="gallery">
+   <h3>Acabas de encontrarte con una colección exclusiva de ~30 productos creada para elevarte más rápido.
+Métodos de aprendizaje acelerado, manuales de productividad, mindfulness, crecimiento mental, habilidades para la vida digital y programas de mejora continua… todo organizado para que avances hoy.
+
+Aquí aprendes antes, ejecutas más rápido y tomas decisiones que otros postergan.
+Si quieres una vida más productiva y resultados que hablen por ti, este es tu momento.
+
+Tu próximo salto empieza ahora.   <h3>
+            <!-- CURSO 1 -->
+            <div class="course">
+                <img src="imagenes/Emprende 2025 A0022.JPG">
+                <h3>Curso Emprender 2025</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H" class="btn-buy">EXPLORAR</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode emprender 2025.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H?ap=27bf" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode pago emprendedor .png')">QR</button>
+                </div>
+            </div>
+
+            <!-- CURSO 2 -->
+            <div class="course">
+                <img src="imagenes/NegocioDigitalExpress1.png">
+                <h3>Curso Negocios Digitales</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103165955Q" class="btn-buy">EXPLORA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode explora Negocio Digital Express.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103165955Q?ap=724f" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Negocio Digital Express Cómo Crear y Monetizar tu Tienda Online en 30 Días.png')">QR</button>
+                </div>
+            </div>
+
+            <!-- CURSO 3 -->
+            <div class="course">
+                <img src="imagenes/SINCRONIZATE CON EL DINERO.jpg">
+                <h3>🚀 SINCRONIZATE CON EL DINERO</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/J103180557S" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode SINCRONIZATE CON EL DINERO.png')">QR</button>
+                </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="category">
+        <div class="category-header" onclick="toggleGallery('gal7')">
+            <span>✅ 7) FITNESS/ SALUD/ SUPLEMENTOS / Culturismo → ~.</span>
+            <span>+</span>
+        </div>
+
+        <div id="gal7" class="gallery">
+   <h3>10 productos  selección exclusiva de programas de entrenamiento, nutrición deportiva y culturismo que está revolucionando las rutinas de miles de personas.
+
+Desde planes completos para ganar masa muscular y weight up, hasta dietas especiales y sistemas de alto rendimiento, esta colección reúne lo mejor del fitness moderno en un solo lugar.
+
+💪 Perfecto para quienes buscan resultados reales, energía sostenida y un cuerpo trabajado con estrategia, no con suerte   <h3>
+            <!-- CURSO 1 -->
+            <div class="course">
+                <img src="imagenes/Emprende 2025 A0022.JPG">
+                <h3>Curso Emprender 2025</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H" class="btn-buy">EXPLORAR</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode emprender 2025.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H?ap=27bf" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode pago emprendedor .png')">QR</button>
+                </div>
+            </div>
+
+            <!-- CURSO 2 -->
+            <div class="course">
+                <img src="imagenes/NegocioDigitalExpress1.png">
+                <h3>Curso Negocios Digitales</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103165955Q" class="btn-buy">EXPLORA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode explora Negocio Digital Express.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103165955Q?ap=724f" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Negocio Digital Express Cómo Crear y Monetizar tu Tienda Online en 30 Días.png')">QR</button>
+                </div>
+            </div>
+
+            <!-- CURSO 3 -->
+            <div class="course">
+                <img src="imagenes/g">
+                <h3>Curso Mindset Millonario</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/J103165995L" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qr3.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="#" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qr3.png')">QR</button>
+                </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="category">
+        <div class="category-header" onclick="toggleGallery('gal8')">
+            <span>✅ 8) COCINA/ RECETAS SECRETAS/REPOSTERIA/ RECETARIOS / NUTRICION / ALIMENTACION SALUDABLE.
+
+</span>
+            <span>+</span>
+        </div>
+
+        <div id="gal8" class="gallery">
+   <h3>            Hoy accedes a una colección exclusiva de ~40 productos que transforma tu cocina en poder: recetarios gourmet, técnicas profesionales, menús inteligentes y sabores exoticos saludables reservados para pocos.
+
+Aquí cada receta es una ventaja y cada técnica, una herramienta.
+Los secretos que antes estaban ocultos ahora están en tus manos.
+Tu cocina deja de ser común… y se vuelve élite.   <h3>
+            <!-- CURSO 1 -->
+            <div class="course">
+                <img src="imagenes/Emprende 2025 A0022.JPG">
+                <h3>Curso Emprender 2025</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H" class="btn-buy">EXPLORAR</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode emprender 2025.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H?ap=27bf" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode pago emprendedor .png')">QR</button>
+                </div>
+            </div>
+
+            <!-- CURSO 2 -->
+            <div class="course">
+                <img src="imagenes/Aromas del Desierto El libro de los 100 secretos de la Cocina Árabe.jpg">
+                <h3>Curso Negocios Digitales</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/H103148327D?dp=1" class="btn-buy">EXPLORA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Aromas del Desierto El libro de los 100 secretos de la Cocina Árabe.png')">QR</button>
+      </div> 
+      </div>
+           <div class="course">
+                <img src="imagenes/30 recetas DULCE KETO.jpg">
+                <h3>Curso Negocios Digitales</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/C103166788D" class="btn-buy">EXPLORA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 30 recetas DULCE KETO.png')">QR</button>
+      </div>
+            </div>
+
+            <!-- CURSO 3 -->
+            <div class="course">
+                <img src="imagenes/250 RECETAS PARA DIABETICOS  BONUS DE REGALO.jpg">
+                <h3>Curso Mindset Millonario</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/P103166581L" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 250 RECETAS PARA DIABETICOS  BONUS DE REGALO.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/P103166581L?dp=1" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode check out 250 RECETAS PARA DIABETICOS  BONUS DE REGALO.png')">QR</button>
+                </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="category">
+        <div class="category-header" onclick="toggleGallery('gal9')">
+            <span>✅ 9) BARBERIA  PELUQUERIA ESTETICA / BELLEZA / SPA → ~</span>
+            <span>+</span>
+        </div>
+
+        <div id="gal9" class="gallery">
+   <h3>50 productos  negocio de alto nivel. “La belleza es un imperio para quien sabe dominarla: cada técnica, cada color y cada herramienta puede convertirse en ingresos si se sabe usar con visión. Esta categoría reúne formaciones de barbería, peluquería, estética y colorimetría diseñadas para transformar manos comunes en manos profesionales, capaces de crear estilos que generan deseo y resultados. Aquí no solo se aprende a ofrecer un servicio, sino a vender transformación, destacar en el mercado y convertirse en el tipo de profesional por el que todos están dispuestos a pagar más.”   <h3>
+            <!-- CURSO 1 -->
+            <div class="course">
+                <img src="imagenes/Emprende 2025 A0022.JPG">
+                <h3>Curso Emprender 2025</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H" class="btn-buy">EXPLORAR</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode emprender 2025.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103166567H?ap=27bf" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode pago emprendedor .png')">QR</button>
+                </div>
+            </div>
+
+            <!-- CURSO 2 -->
+            <div class="course">
+                <img src="imagenes/NegocioDigitalExpress1.png">
+                <h3>Curso Negocios Digitales</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103165955Q" class="btn-buy">EXPLORA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode explora Negocio Digital Express.png')">QR</button>
+                </div>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/Y103165955Q?ap=724f" class="btn-buy">IR A PAGINA DE COMPRA</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Negocio Digital Express Cómo Crear y Monetizar tu Tienda Online en 30 Días.png')">QR</button>
+                </div>
+            </div>
+
+            <!-- CURSO 3 -->
+            <div class="course">
+                <img src="imagenes/Curso de Barbería y Lady Barber ¡El Único con Certificado Hotmart!.jpg">
+                <h3>Curso Mindset Millonario</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/I103174773Y?ap=8cee&redirectionUrl=https%3A%2F%2Fumacursosdigitales.my.canva.site%2Fmega-pack-de-barberia" class="btn-buy">ACCEDER</a>
+                    <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Curso de Barbería y Lady Barber ¡El Único con Certificado Hotmart!.png')">QR</button>
+                </div>
+                      </div>
+         <div class="course">
+                <img src="imagenes/!! Barberia profecional curso completo !!.jpg">
+                <h3>Curso Mindset Millonario</h3>
+
+                <div class="botones">
+                    <a href="https://go.hotmart.com/A103174760H?dp=1"class="btn-buy">ACCEDER</a>
+                      <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode !! Barberia profecional curso completo !!.png')">QR</button>
+                </div>
+                </div>
+        </div>
+        
+    </div>
+</section>
+------ -->
+<footer>
+    <p>© 2025 ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ — Todos los derechos reservados.</p>
+</footer>
+
+
+<a class="whatsapp-bubble" href="https://wa.me/56979523923" target="_blank">💬</a>
+
+</body>
+</html>
