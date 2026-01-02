@@ -1,6 +1,229 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivo Poder Digital | Directorio de Recursos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #f4f4f4;
+            --text: #333;
+            --accent: #2c3e50;
+            --card-bg: #ffffff;
+            --border: #ddd;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0; line-height: 1.6;
+        }
+
+        .info-bar {
+            background: #e9ecef;
+            padding: 10px 20px;
+            font-size: 11px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            color: #665;
+        }
+
+        header {
+            background: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        h1 { margin: 0; font-size: 1.8rem; color: var(--accent); letter-spacing: 1px; }
+
+        /* BUSCADOR FUNCIONAL */
+        .search-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .search-input {
+            width: 100%; 
+            padding: 15px; 
+            border: 2px solid var(--accent); 
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .main-container { max-width: 1200px; margin: auto; padding: 20px; }
+
+        .dir-section { margin-bottom: 20px; background: #fff; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+        
+        .dir-header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            display: none; /* Se activa con JS o clase active */
+        }
+        .grid.active { display: grid; }
+
+        .item-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+
+        .item-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+        .item-content { padding: 15px; flex-grow: 1; }
+        .item-title { font-size: 1rem; margin: 0; color: #000; font-weight: 600; }
+        .item-desc { font-size: 0.85rem; color: #666; margin-top: 10px; }
+
+        .action-area { display: flex; gap: 10px; padding: 10px 15px; background: #fafafa; border-top: 1px solid #eee; }
+        .btn-details {
+            flex: 1; text-align: center; font-size: 12px; font-weight: bold;
+            color: var(--accent); border: 1px solid var(--accent); padding: 8px;
+            border-radius: 4px; text-decoration: none;
+        }
+
+        footer { text-align: center; padding: 40px; background: #fff; font-size: 0.8rem; border-top: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+
+<div class="info-bar">
+    <i class="fas fa-university"></i> PODER DIGITAL | Directorio Oficial de Soporte y Recursos Digitales
+</div>
+
+<header>
+    <h1>PODER DIGITAL</h1>
+    <div class="search-container">
+        <input type="text" id="buscador" class="search-input" placeholder="Escribe para buscar entre 500+ recursos..." onkeyup="filtrarContenido()">
+    </div>
+</header>
+
+<div class="main-container">
+
+    <div class="dir-section category-block">
+        <div class="dir-header" onclick="toggleGrid('grid1')">
+            <h2>MARKETING & AFILIADOS</h2>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div id="grid1" class="grid active">
+            
+            <div class="item-card" onclick="window.open('LINK1', '_blank')">
+                <img src="imagenes/Curso1 2026.JPG" class="item-img">
+                <div class="item-content">
+                    <h3 class="item-title">Emprender 2026</h3>
+                    <p class="item-desc">Estrategias.</p>
+                </div>
+                <div class="action-area"><div class="btn-details">CONSULTAR</div></div>
+            </div>
+
+            <div class="item-card" onclick="window.open('LINK2', '_blank')">
+                <img src="imagenes/ Curso2 2026.png" class="item-img">
+                <div class="item-content">
+                    <h3 class="item-title">2026 productos</h3>
+                    <p class="item-desc">recursos 2026.</p>
+                </div>
+                <div class="action-area"><div class="btn-details">CONSULTAR</div></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="dir-section category-block">
+        <div class="dir-header" onclick="toggleGrid('grid2')">
+            <h2>CONTENIDO FACELESS</h2>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div id="grid2" class="grid">
+            <div class="item-card" onclick="window.open('LINK3', '_blank')">
+                <img src="imagenes/Curso3 2026.jpg" class="item-img">
+                <div class="item-content">
+                    <h3 class="item-title"> Videos </h3>
+                    <p class="item-desc">Material Informativo.</p>
+                </div>
+                <div class="action-area"><div class="btn-details">CONSULTAR</div></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // FUNCIÓN DE BÚSQUEDA REAL
+    function filtrarContenido() {
+        let input = document.getElementById('buscador').value.toLowerCase();
+        let cards = document.getElementsByClassName('item-card');
+        let grids = document.getElementsByClassName('grid');
+        let blocks = document.getElementsByClassName('category-block');
+
+        for (let i = 0; i < cards.length; i++) {
+            let title = cards[i].querySelector('.item-title').innerText.toLowerCase();
+            let desc = cards[i].querySelector('.item-desc').innerText.toLowerCase();
+            
+            if (title.includes(input) || desc.includes(input)) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+
+        // Si el usuario escribe algo, abre todas las categorías para mostrar resultados
+        if (input.length > 0) {
+            for (let g of grids) {
+                g.classList.add('active');
+            }
+        }
+    }
+
+    function toggleGrid(id) {
+        const grid = document.getElementById(id);
+        grid.classList.toggle('active');
+    }
+</script>
+
+<footer>
+    <p>soportepoderdigital.cl | Directorio de Información </p>
+        Este sitio es un directorio informativo. Los enlaces pueden redirigir a plataformas externas,
+    cuyo uso es responsabilidad del usuario.
+  </p>
+
+  <p>
+    © 2026 Soporte Poder Digital. Todos los derechos reservados. |
+    <a href="privacidad.html">Política de Privacidad</a> |
+    <a href="terminos.html">Términos y Condiciones</a>
+  </p>
+</footer>
+
+
+
+<a class="whatsapp-bubble" href="https://wa.me/56979523923" target="_blank">💬</a>
+</footer>
+
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
 <meta charset="UTF-8">
 <title>Poder Digital | Directorio informativo de recursos digitales</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
