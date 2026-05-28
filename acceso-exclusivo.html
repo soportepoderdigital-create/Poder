@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poder Digital | Directorio de Recursos e Información</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #f4f4f4;
+            --text: #333;
+            --accent: #ff7a00;
+            --card-bg: #ffffff;
+            --border: #ddd;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0; 
+            line-height: 1.6;
+        }
+
+        .info-bar {
+            background: #e9ecef;
+            padding: 10px 20px;
+            font-size: 11px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            color: #665;
+        }
+
+        header {
+            background: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        h1 { margin: 0; font-size: 1.8rem; color: var(--accent); letter-spacing: 1px; }
+
+        .search-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .search-input {
+            width: 100%; 
+            padding: 15px; 
+            border: 2px solid var(--accent); 
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .main-container { max-width: 1200px; margin: auto; padding: 20px; }
+
+        /* Misiones y Propósitos */
+        .ecosistema-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .ecosistema-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        .ecosistema-card h2 { margin-top: 0; font-size: 1.2rem; color: #111; }
+
+        /* Secciones de Prensa / Editorial */
+        .editorial {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        /* ACORDIONES Y CATEGORÍAS */
+        .category {
+            background: white;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background: #f8f9fa;
+            transition: background 0.3s;
+        }
+        .category-header:hover { background: #f1f3f5; }
+
+        .gallery {
+            display: none;
+            padding: 20px;
+            background: #fff;
+            border-top: 1px solid var(--border);
+        }
+
+        /* GRID DE CURSOS */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .course {
+            background: #fafafa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .course img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .course h3 { margin: 10px 0; font-size: 1.1rem; color: #000; }
+
+        /* BOTONES */
+        .botones {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-buy {
+            background: var(--accent);
+            padding: 12px;  
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            font-size: 13px;
+            transition: background 0.2s;
+        }
+        .btn-buy:hover { background: #e06b00; }
+
+        .btn-qr {
+            background: #e9ecef;
+            color: #333;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* OVERLAY QR */
+        #qr-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #qr-overlay img { width: 80vw; max-width: 350px; border-radius: 20px; }
+        .cerrar { position: absolute; top: 25px; right: 25px; font-size: 35px; color: white; font-weight: bold; cursor: pointer; }
+
+        /* NOTICIAS ESTILO PRENSA */
+        .noticia-prensa {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            margin: 40px auto;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .noticia-header { padding: 30px; border-bottom: 1px solid #eaeaea; }
+        .noticia-body { padding: 30px; }
+
+        /* VIDEOS Y EMEDIDOS */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #f2f2f2;
+            margin: 20px 0;
+        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        /* WHATSAPP */
+        .whatsapp-bubble {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 34px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+
+        footer { text-align: center; padding: 40px 20px; background: #000; color: #fff; font-size: 0.85rem; margin-top: 40px; }
+        footer a { color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="info-bar">
+    <i class="fas fa-university"></i> PODER DIGITAL | Directorio Informativo de Soporte y Recursos Digitales
+</div>
+
+<header>
+    <h1>PODER DIGITAL</h1>
+    <p><strong>Directorio informativo de recursos, cursos, materiales y herramientas digitales.</strong></p>
+    <p>Soporte Poder Digital es un sitio de carácter informativo. No comercializa productos ni gestiona pagos.</p>
+    <p>Los enlaces publicados redirigen a plataformas externas y se proporcionan con fines educativos, informativos, recreativos y desarrollo personal.</p>
+    <p>Algunos enlaces pueden tener carácter patrocinado; en dichos casos, este sitio podría percibir una comisión sin que ello implique un costo adicional para el usuario.</p>
+    
+    <div class="search-container">
+        <input type="text" id="buscador" class="search-input" placeholder="Escribe para buscar recursos..." onkeyup="filtrarContenido()">
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- Sección de Objetivos / Misiones -->
+    <div class="ecosistema-grid">
+        <div class="ecosistema-card">
+            <h2>🌱 Nuestra misión</h2>
+            <p>Invitar a las personas a crear y desarrollar su propia parte dentro de un ecosistema digital, facilitando el acceso a recursos, plataformas y oportunidades...</p>
+        </div>
+        <div class="ecosistema-card">
+            <h2>🧭 Nuestro propósito</h2>
+            <p>Servir como un punto de entrada al ecosistema digital, conectando a emprendedores con herramientas y recursos confiables...</p>
+        </div>
+        <div class="ecosistema-card">
+            <h2>✨ Nuestra visión</h2>
+            <p>Impulsar la creación de ecosistemas digitales personales, donde cada emprendedor pueda comenzar, aprender y evolucionar a su propio ritmo...</p>
+        </div>
+        <div class="ecosistema-card">
+            <h2>💎 Nuestro enfoque</h2>
+            <p>Ofrecer un directorio Informativo de recursos y oportunidades digitales, priorizando la claridad, la utilidad y el crecimiento consciente.</p>
+        </div>
+    </div>
+
+    <!-- Videos Destacados en la cabecera -->
+    <div class="video-container">
+        <iframe src="https://www.youtube-nocookie.com/embed/eW2qlKa6oHw" title="Contenido audiovisual" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+
+    <!-- Editorial Carta -->
+    <section class="editorial">
+        <h2>La carta del millón de dólares</h2>
+        <p>Dentro del entorno digital existen plataformas y herramientas que han sido analizadas por su impacto en distintos modelos económicos. Parte de esta información proviene de estudios, reportes públicos y análisis realizados a lo largo del tiempo.</p>
+        <p>Las plataformas funcionan como infraestructuras tecnológicas: permiten distribuir contenidos, automatizar procesos o conectar servicios...</p>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- CATEGORÍAS ACORDIONES -->
+    <!-- =============================================================== -->
+
+    <!-- CATEGORÍA 1 -->
+    <div class="category item-card">
+        <div class="category-header" onclick="toggleGallery('gal1')">
+            <span class="item-title">🔑 ✅ 1) MARKETING DIGITAL AFILIADOS / FACELESS / REVENTA / E-COMMERCE →</span>
+            <span>+</span>
+        </div>
+        <div id="gal1" class="gallery">
+            <p class="item-desc">Esta categoría reúne materiales digitales orientados al estudio del ecosistema del marketing digital, los modelos de afiliación y la distribución de productos digitales.</p>
+            
+            <div class="courses-grid">
+                <!-- Curso Amazon Handmade -->
+                <div class="course">
+                    <img src="imagenes/curso1 2026.jpg" alt="Amazon Handmade">
+                    <h3>Amazon Handmade</h3>
+                    <p>A través de su ecosistema global, artesanos y creadores independientes pueden vender su artesanía hecha a mano a compradores de distintos países.</p>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/T103481322Q" target="_blank" class="btn-buy">Información y acceso externo</a>
+                    </div>
+                </div>
+
+                <!-- Sistema Integral E-commerce -->
+                <div class="course">
+                    <img src="imagenes/sistema ecommerce simple amp facil.jpg" alt="Sistema ecommerce">
+                    <h3>Sistema integral para la creación de comercio electrónico</h3>
+                    <p>Este recurso presenta un sistema completo orientado al desarrollo y administración de tiendas en línea.</p>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/Y103167249C?dp=1" target="_blank" class="btn-buy">Información y acceso externo</a>
+                    </div>
+                </div>
+
+                <!-- Pack Emprendedor -->
+                <div class="course">
+                    <img src="imagenes/Emprende 2025 A0022.JPG" alt="Pack Emprendedor">
+                    <h3>"Pack Emprendedor Digital: De Cero a Rentabilidad"</h3>
+                    <p>Material digital orientado a explicar conceptos básicos del emprendimiento online.</p>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/Y103166567H" target="_blank" class="btn-buy">EXPLORA</a>
+                        <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode emprender 2025.png')">Ver QR</button>
+                    </div>
+                </div>
+
+                <!-- Marketing Afiliados -->
+                <div class="course">
+                    <img src="imagenes/Marketing de Afiliados Tu Pasaporte a Ganancias.jpg" alt="Marketing Afiliados">
+                    <h3>Marketing de Afiliados</h3>
+                    <p>Recurso educativo enfocado en el modelo de afiliación digital y sus principios básicos.</p>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/V103169546A?dp=1" target="_blank" class="btn-buy">Acceso Externo</a>
+                        <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Marketing de Afiliados Tu Pasaporte a Ganancias.png')">Ver QR</button>
+                    </div>
+                </div>
+
+                <!-- PLR 47 -->
+                <div class="course">
+                    <img src="imagenes/47 Productos en Español.png" alt="PLR 47">
+                    <h3>PLR 47 Productos PLR en Español</h3>
+                    <p>Conjunto de contenidos digitales bajo licencia PLR, utilizados como material base para edición.</p>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/R103156135H" target="_blank" class="btn-buy">EXPLORA</a>
+                        <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 47 Productos PLR en Español.png')">Ver QR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CATEGORÍA 2 -->
+    <div class="category item-card">
+        <div class="category-header" onclick="toggleGallery('gal2')">
+            <span class="item-title">🔑 ✅ 2) PLANTILLAS / DISEÑO / CANVA / MOCKUPS / CONTENIDO VISUAL / STICKERS 🚀</span>
+            <span>+</span>
+        </div>
+        <div id="gal2" class="gallery">
+            <p class="item-desc">Recursos visuales y materiales digitales utilizados en procesos de diseño y creación de contenido aesthetic faceless.</p>
+            <div class="courses-grid">
+                <div class="course">
+                    <img src="imagenes/3000 Videos Faceless Aesthetic para Reels Bono de videos dopamina PLR & MRR.jpg" alt="Videos Faceless">
+                    <h3>+3000 Videos Faceless Aesthetic (PLR / MRR)</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/L103158907X" target="_blank" class="btn-buy">EXPLORA</a>
+                        <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 3000 Videos Faceless Aesthetic para Reels Bono de videos dopamina PLR & MRR.png')">Ver QR</button>
+                    </div>
+                </div>
+                <div class="course">
+                    <img src="imagenes/100 Prompts para Impulsar tu Negocio Autor Meléndez.png" alt="Prompts IA">
+                    <h3>100 Prompts para Análisis y Uso de IA</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/M103167817D" target="_blank" class="btn-buy">EXPLORA</a>
+                        <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 100 Prompts para Impulsar tu Negocio Autor Meléndez.png')">Ver QR</button>
+                    </div>
+                </div>
+                <div class="course">
+                    <img src="imagenes/2000 videos listos para monetizar sin mostrar tu rostro con derechos de reventa MMR PRL 4 guías bonnus para monetizar Autor diego arias.png" alt="Videos sin rostro">
+                    <h3>Colección de Videos Faceless con Licencias</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/D103156373L" target="_blank" class="btn-buy">Acceso Externo</a>
+                        <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 2000 videos listos para monetizar sin mostrar tu rostro con derechos de reventa MMR PRL 4 guías bonnus para monetizar Autor diego arias.png')">Ver QR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CATEGORÍA 3 -->
+    <div class="category item-card">
+        <div class="category-header" onclick="toggleGallery('gal3')">
+            <span class="item-title">🔑 ✅ 3) TIENDAS / NEGOCIOS FÍSICOS / FRANQUICIAS / MICRO NEGOCIOS</span>
+            <span>+</span>
+        </div>
+        <div id="gal3" class="gallery">
+            <p class="item-desc">Espacio informativo que reúne materiales y recursos relacionados con emprendimiento, micro-negocios y modelos de expansión mediante franquicias.</p>
+            <div class="courses-grid">
+                <div class="course">
+                    <img src="imagenes/Como crear tu propia tienda online gratuita.jpg" alt="Tienda Gratis">
+                    <h3>Cómo crear tu propia tienda online gratuita</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/D103166038J" target="_blank" class="btn-buy">Acceso Externo</a>
+                        <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Como crear tu propia tienda online gratuita.jpg')">Ver QR</button>
+                    </div>
+                </div>
+                <div class="course">
+                    <img src="imagenes/instamaster franquicia digital.jpg" alt="Franquicia Digital">
+                    <h3>Instamaster Franquicia Digital</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/W103175582I?dp=1" target="_blank" class="btn-buy">EXPLORA</a>
+                        <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode instamaster franquicia digital.png')">Ver QR</button>
+                    </div>
+                </div>
+                <div class="course">
+                    <img src="imagenes/CREA TU PROPIA FRANQUICIA DESDE CERO.jpg" alt="Crea tu Franquicia">
+                    <h3>Diseño, desarrollo y gestión de modelos de franquicia</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/D103175702F" target="_blank" class="btn-buy">EXPLORA</a>
+                        <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode CREA TU PROPIA FRANQUICIA DESDE CERO.png')">Ver QR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CATEGORÍA 4 -->
+    <div class="category item-card">
+        <div class="category-header" onclick="toggleGallery('gal4')">
+            <span class="item-title">🔑 ✅ 4) TECNOLOGÍA IA / AUTOMATIZACIÓN / BOTS / SOFTWARE →</span>
+            <span>+</span>
+        </div>
+        <div id="gal4" class="gallery">
+            <p class="item-desc">Soluciones y cursos modernos enfocados en Inteligencia Artificial, Bots conversacionales y flujos automatizados de trabajo.</p>
+            <div class="courses-grid">
+                <div class="course">
+                    <img src="imagenes/Automatizacion de Redes Sociales.jpg" alt="Automatizacion RRSS">
+                    <h3>Automatización de Redes Sociales</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/K103127383A" target="_blank" class="btn-buy">EXPLORA</a>
+                        <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode Automatizacion de Redes Sociales.png')">Ver QR</button>
+                    </div>
+                </div>
+                <div class="course">
+                    <img src="imagenes/50 Cursos sobre Tecnologia.jpg" alt="50 Cursos">
+                    <h3>💡 +50 Cursos sobre Tecnología</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/P103130758P" target="_blank" class="btn-buy">ACCEDER</a>
+                        <button class="btn-qr" onclick="mostrarQR('imagenes/qrcode 50 Cursos sobre Tecnologia.png')">Ver QR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CATEGORÍA 5 -->
+    <div class="category item-card">
+        <div class="category-header" onclick="toggleGallery('gal5')">
+            <span class="item-title">🔑 ✅ 5) MAGIA / STICKERS / ENTRETENIMIENTO. PUERTA A OTRO NIVEL 🚀</span>
+            <span>+</span>
+        </div>
+        <div id="gal5" class="gallery">
+            <p class="item-desc">Categoría de entretenimiento creativo, trucos de ilusionismo, bundles masivos de stickers de anime y recursos de ocio.</p>
+            <div class="courses-grid">
+                <div class="course">
+                    <img src="imagenes/imagen referencial ok creada con ia para curso de magia.png" alt="Curso de Magia">
+                    <h3>Curso de Magia Profesional</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/P103144418P" target="_blank" class="btn-buy">EXPLORA</a>
+                    </div>
+                </div>
+                <div class="course">
+                    <img src="imagenes/4000 Mega Sticker Bundle PNG Diseños Anime Kawaii Cartoons Variedad de Temas y Franquicias Populares.jpg" alt="Mega Stickers">
+                    <h3>4000+ Mega Sticker Bundle PNG</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/Q103180230I" target="_blank" class="btn-buy">EXPLORA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CATEGORÍA 6 -->
+    <div class="category item-card">
+        <div class="category-header" onclick="toggleGallery('gal6')">
+            <span class="item-title">🔑 ✅ 6) CURSOS / EDUCACIÓN / EBOOKS GENERALES / AUTOAYUDA →</span>
+            <span>+</span>
+        </div>
+        <div id="gal6" class="gallery">
+            <p class="item-desc">Recursos orientados a optimizar tus finanzas personales, mentalidad de abundancia y organización del tiempo.</p>
+            <div class="courses-grid">
+                <div class="course">
+                    <img src="imagenes/Crecimiento integral.jpg" alt="Crecimiento integral">
+                    <h3>Crecimiento Integral</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/Y103829002G" target="_blank" class="btn-buy">EXPLORA</a>
+                    </div>
+                </div>
+                <div class="course">
+                    <img src="imagenes/SINCRONIZATE CON EL DINERO.jpg" alt="Sincronízate con el dinero">
+                    <h3>Sincronízate con el Dinero</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/J103180557S" target="_blank" class="btn-buy">Acceso Externo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CATEGORÍA 7 -->
+    <div class="category item-card">
+        <div class="category-header" onclick="toggleGallery('gal7')">
+            <span class="item-title">🔑 ✅ 7) FITNESS / SALUD / SUPLEMENTOS / CULTURISMO →</span>
+            <span>+</span>
+        </div>
+        <div id="gal7" class="gallery">
+            <p class="item-desc">Sistemas de alto rendimiento, ganancia de masa muscular, nutrición deportiva y rutinas guiadas estratégicamente.</p>
+            <div class="courses-grid">
+                <div class="course">
+                    <img src="imagenes/Emprende 2025 A0022.JPG" alt="Curso Fit">
+                    <h3>Guías de Nutrición Avanzada y Fuerza</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/Y103166567H" target="_blank" class="btn-buy">EXPLORAR</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CATEGORÍA 8 -->
+    <div class="category item-card">
+        <div class="category-header" onclick="toggleGallery('gal8')">
+            <span class="item-title">✅ 8) COCINA / RECETAS SECRETAS / REPOSTERÍA / NUTRICIÓN SALUDABLE</span>
+            <span>+</span>
+        </div>
+        <div id="gal8" class="gallery">
+            <p class="item-desc">Colecciones de alta cocina gourmet, repostería Keto, menús balanceados para diabéticos y secretos culinarios exóticos.</p>
+            <div class="courses-grid">
+                <div class="course">
+                    <img src="imagenes/Aromas del Desierto El libro de los 100 secretos de la Cocina Árabe.jpg" alt="Cocina Arabe">
+                    <h3>Aromas del Desierto: 100 Secretos de la Cocina Árabe</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/H103148327D?dp=1" target="_blank" class="btn-buy">EXPLORA</a>
+                    </div>
+                </div>
+                <div class="course">
+                    <img src="imagenes/30 recetas DULCE KETO.jpg" alt="Dulce Keto">
+                    <h3>30 Recetas Dulce Keto</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/C103166788D" target="_blank" class="btn-buy">EXPLORA</a>
+                    </div>
+                </div>
+                <div class="course">
+                    <img src="imagenes/250 RECETAS PARA DIABETICOS  BONUS DE REGALO.jpg" alt="Recetas Diabeticos">
+                    <h3>250 Recetas para Diabéticos + Bonos</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/P103166581L" target="_blank" class="btn-buy">ACCEDER</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CATEGORÍA 9 -->
+    <div class="category item-card">
+        <div class="category-header" onclick="toggleGallery('gal9')">
+            <span class="item-title">🔑 ✅ 9) BARBERÍA / PELUQUERÍA / ESTÉTICA / BELLEZA / SPA →</span>
+            <span>+</span>
+        </div>
+        <div id="gal9" class="gallery">
+            <p class="item-desc">Recursos de formación y perfeccionamiento técnico continuo en colorimetría, cortes avanzados de barbería y estilismo comercial.</p>
+            <div class="courses-grid">
+                <div class="course">
+                    <img src="imagenes/Curso de Barbería y Lady Barber ¡El Único con Certificado Hotmart!.jpg" alt="Barberia">
+                    <h3>Curso Completo de Barbería y Lady Barber</h3>
+                    <div class="botones">
+                        <a href="https://go.hotmart.com/I103174773Y?ap=8cee" target="_blank" class="btn-buy">Acceso Externo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================================== -->
+    <!-- NOTICIAS SII CHILE -->
+    <!-- =============================================================== -->
+    <article class="noticia-prensa">
+        <header class="noticia-header">
+            <span style="font-size:0.85em;color:#0073e6;font-weight:bold;letter-spacing:1px;">ACTUALIDAD DIGITAL · CHILE</span>
+            <h2 style="margin:15px 0 10px 0;font-size:1.8rem;color:#222;">Nueva exigencia tributaria en Chile entra en vigencia</h2>
+            <p style="color:#666;font-size:0.95em;">El Servicio de Impuestos Internos refuerza la formalización de actividades en entornos digitales.</p>
+        </header>
+        <div class="noticia-body">
+            <p>Desde el <strong>2 de enero de 2026</strong>, el <strong>Servicio de Impuestos Internos (SII)</strong> comenzó a aplicar exigencias normativas que obligan a verificar el inicio de actividades de plataformas comerciales.</p>
+            <p>La normativa <strong>no prohíbe la existencia de páginas web informativas o de difusión</strong> como este directorio, por lo que este portal sigue operando con total normalidad para fines educativos.</p>
+        </div>
+    </article>
+
+    <!-- Videos Adicionales -->
+    <div class="video-container">
+        <iframe src="https://www.youtube-nocookie.com/embed/3wkuqRFXNvI" title="Contenido audiovisual" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+
+</div> <!-- FIN MAIN CONTAINER -->
+
+<!-- QR OVERLAY LAYER -->
+<div id="qr-overlay">
+    <span class="cerrar" onclick="cerrarQR()">✕</span>
+    <img id="qr-overlay-img" src="" alt="Código QR">
+</div>
+
+<!-- BOTÓN GENERAL WHATSAPP -->
+<a class="whatsapp-bubble" href="https://wa.me/56979523923" target="_blank">💬</a>
+
+<footer>
+    <p><strong>soportepoderdigital.cl | Directorio de Información</strong></p>
+    <p>Este sitio es un directorio informativo independiente. Los enlaces redirigen a plataformas externas cuya utilización y registro es de total responsabilidad del usuario.</p>
+    <p>© 2026 Soporte Poder Digital. Todos los derechos reservados. | <a href="privacidad.html">Política de Privacidad</a> | <a href="terminos.html">Términos y Condiciones</a></p>
+</footer>
+
+<script>
+    // Buscador funcional integrado
+    function filtrarContenido() {
+        let input = document.getElementById('buscador').value.toLowerCase();
+        let cards = document.getElementsByClassName('item-card');
+
+        for (let i = 0; i < cards.length; i++) {
+            let title = cards[i].querySelector('.item-title').innerText.toLowerCase();
+            let desc = cards[i].querySelector('.item-desc') ? cards[i].querySelector('.item-desc').innerText.toLowerCase() : "";
+            
+            if (title.includes(input) || desc.includes(input)) {
+                cards[i].style.display = "block";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+
+    // Controlador de Acordeón Único
+    function toggleGallery(id){
+        let g = document.getElementById(id);
+        g.style.display = (g.style.display === "block") ? "none" : "block";
+    }
+
+    // Funciones del visualizador de códigos QR
+    function mostrarQR(ruta){
+        document.getElementById("qr-overlay-img").src = ruta;
+        document.getElementById("qr-overlay").style.display = "flex";
+    }
+
+    function cerrarQR(){
+        document.getElementById("qr-overlay").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
