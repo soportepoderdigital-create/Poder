@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Store</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+}
+
+/* HEADER */
+header{
+    padding:20px;
+    text-align:center;
+}
+
+header h1{
+    margin:0;
+    font-size:28px;
+}
+
+header p{
+    color:#cbd5e1;
+}
+
+/* SEARCH */
+.search-box{
+    display:flex;
+    justify-content:center;
+    padding:10px 20px;
+}
+
+.search-box input{
+    width:100%;
+    max-width:500px;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+    font-size:14px;
+}
+
+/* GRID */
+.container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap:18px;
+    padding:20px;
+}
+
+/* CARD */
+.card{
+    background: rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:16px;
+    overflow:hidden;
+    backdrop-filter: blur(10px);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.08);
+}
+
+.card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.card h2{
+    margin:0;
+    font-size:18px;
+}
+
+.tag{
+    font-size:12px;
+    color:#38bdf8;
+    margin-top:5px;
+}
+
+.card p{
+    font-size:13px;
+    color:#cbd5e1;
+}
+
+/* BUTTONS */
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:10px;
+}
+
+.btn{
+    flex:1;
+    text-align:center;
+    padding:8px;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.play{background:#22c55e;color:black;}
+.ios{background:#3b82f6;color:white;}
+.web{background:#f97316;color:white;}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    color:#94a3b8;
+    font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🚀 App Store</h1>
+    <p>Descubre apps gratis, útiles y potentes</p>
+</header>
+
+<div class="search-box">
+    <input type="text" placeholder="🔍 Buscar apps...">
+</div>
+
+<div class="container">
+
+    <!-- APP 1 -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="">
+        <div class="card-content">
+            <h2>Shazam</h2>
+            <div class="tag">🎵 Música</div>
+            <p>Detecta canciones al instante solo escuchando el audio.</p>
+            <div class="buttons">
+                <a class="btn play" href="https://play.google.com/store" target="_blank">Play Store</a>
+                <a class="btn ios" href="https://www.apple.com/app-store/" target="_blank">iPhone</a>
+                <a class="btn web" href="https://www.shazam.com" target="_blank">Web</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- APP 2 -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f" alt="">
+        <div class="card-content">
+            <h2>Google Lens</h2>
+            <div class="tag">📷 IA</div>
+            <p>Identifica objetos, textos y lugares usando la cámara.</p>
+            <div class="buttons">
+                <a class="btn play" href="#" target="_blank">Play Store</a>
+                <a class="btn ios" href="#" target="_blank">iPhone</a>
+                <a class="btn web" href="https://lens.google" target="_blank">Web</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- APP 3 -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4" alt="">
+        <div class="card-content">
+            <h2>ChatGPT</h2>
+            <div class="tag">🧠 IA</div>
+            <p>Asistente inteligente para escribir, aprender y crear ideas.</p>
+            <div class="buttons">
+                <a class="btn play" href="#" target="_blank">Play Store</a>
+                <a class="btn ios" href="#" target="_blank">iPhone</a>
+                <a class="btn web" href="https://chat.openai.com" target="_blank">Web</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- APP 4 -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="">
+        <div class="card-content">
+            <h2>Canva</h2>
+            <div class="tag">🎨 Diseño</div>
+            <p>Crea diseños, logos, presentaciones y contenido visual.</p>
+            <div class="buttons">
+                <a class="btn play" href="https://play.google.com" target="_blank">Play Store</a>
+                <a class="btn ios" href="https://apps.apple.com" target="_blank">iPhone</a>
+                <a class="btn web" href="https://www.canva.com" target="_blank">Web</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- APP 5 -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="">
+        <div class="card-content">
+            <h2>Spotify</h2>
+            <div class="tag">🎧 Música</div>
+            <p>Escucha millones de canciones gratis con anuncios.</p>
+            <div class="buttons">
+                <a class="btn play" href="https://play.google.com" target="_blank">Play Store</a>
+                <a class="btn ios" href="https://apps.apple.com" target="_blank">iPhone</a>
+                <a class="btn web" href="https://www.spotify.com" target="_blank">Web</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    Directorio de apps 🚀 | editable y expandible
+</footer>
+
+</body>
+</html>
