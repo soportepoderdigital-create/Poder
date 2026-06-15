@@ -3,221 +3,267 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>App Store</title>
+<title>Poder Digital | App Store</title>
 
 <style>
-body{
+:root {
+    --bg: #f4f4f4;
+    --text: #333;
+    --accent: #ff7a00;
+}
+
+body {
     margin:0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#0f172a,#1e293b);
-    color:white;
+    background: var(--bg);
+    color: var(--text);
 }
 
 /* HEADER */
-header{
-    padding:20px;
-    text-align:center;
+header {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 4px solid var(--accent);
 }
 
-header h1{
+header h1 {
     margin:0;
-    font-size:28px;
+    font-size: 2rem;
 }
 
-header p{
-    color:#cbd5e1;
+header p {
+    color:#ccc;
 }
 
-/* SEARCH */
-.search-box{
-    display:flex;
-    justify-content:center;
-    padding:10px 20px;
-}
-
-.search-box input{
-    width:100%;
-    max-width:500px;
-    padding:12px;
-    border-radius:10px;
-    border:none;
-    outline:none;
-    font-size:14px;
-}
-
-/* GRID */
-.container{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap:18px;
+/* MAIN */
+.container {
+    max-width: 1200px;
+    margin:auto;
     padding:20px;
 }
 
-/* CARD */
-.card{
-    background: rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:16px;
+/* SECTION */
+.section {
+    background:white;
+    padding:25px;
+    margin:20px 0;
+    border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+.section h2 {
+    color: var(--accent);
+}
+
+/* APP GRID */
+.grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:18px;
+}
+
+.card {
+    background: white;
+    border:1px solid #ddd;
+    border-radius:12px;
     overflow:hidden;
-    backdrop-filter: blur(10px);
     transition:0.3s;
 }
 
-.card:hover{
+.card:hover {
     transform: translateY(-5px);
-    background: rgba(255,255,255,0.08);
 }
 
-.card img{
+.card img {
     width:100%;
-    height:150px;
+    height:140px;
     object-fit:cover;
 }
 
-.card-content{
+.card-content {
     padding:15px;
 }
 
-.card h2{
+.card h3 {
     margin:0;
-    font-size:18px;
 }
 
-.tag{
+.tag {
     font-size:12px;
-    color:#38bdf8;
-    margin-top:5px;
+    color:#ff7a00;
 }
 
-.card p{
+.card p {
     font-size:13px;
-    color:#cbd5e1;
 }
 
-/* BUTTONS */
-.buttons{
+.buttons {
     display:flex;
+    gap:5px;
     flex-wrap:wrap;
-    gap:6px;
-    margin-top:10px;
 }
 
-.btn{
+.btn {
     flex:1;
     text-align:center;
     padding:8px;
     border-radius:8px;
     text-decoration:none;
-    font-size:11px;
+    font-size:12px;
     font-weight:bold;
 }
 
-.play{background:#22c55e;color:black;}
-.ios{background:#3b82f6;color:white;}
-.web{background:#f97316;color:white;}
+.web {background:#f97316;color:white;}
+.play {background:#22c55e;color:black;}
+.ios {background:#3b82f6;color:white;}
 
 /* FOOTER */
-footer{
+footer {
     text-align:center;
-    padding:20px;
-    color:#94a3b8;
+    padding:30px;
+    background:#000;
+    color:white;
     font-size:12px;
 }
+a { color: var(--accent); }
 </style>
+
 </head>
 
 <body>
 
 <header>
-    <h1>🚀 App Store</h1>
-    <p>Descubre apps gratis, útiles y potentes</p>
+    <h1>📱 APP STORE</h1>
+    <p>Soporte Poder Digital | Directorio informativo de apps y herramientas digitales</p>
 </header>
-
-<div class="search-box">
-    <input type="text" placeholder="🔍 Buscar apps...">
-</div>
 
 <div class="container">
 
-    <!-- APP 1 -->
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="">
-        <div class="card-content">
-            <h2>Shazam</h2>
-            <div class="tag">🎵 Música</div>
-            <p>Detecta canciones al instante solo escuchando el audio.</p>
-            <div class="buttons">
-                <a class="btn play" href="https://play.google.com/store" target="_blank">Play Store</a>
-                <a class="btn ios" href="https://www.apple.com/app-store/" target="_blank">iPhone</a>
-                <a class="btn web" href="https://www.shazam.com" target="_blank">Web</a>
-            </div>
-        </div>
-    </div>
+<!-- ENTRADA OFICIAL -->
+<div class="section">
+    <h2>📌 Entrada oficial</h2>
+    <p>
+        Esta sección pertenece al ecosistema de <strong>Soporte Poder Digital</strong>,
+        un directorio informativo creado para organizar herramientas, aplicaciones y recursos digitales.
+    </p>
 
-    <!-- APP 2 -->
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f" alt="">
-        <div class="card-content">
-            <h2>Google Lens</h2>
-            <div class="tag">📷 IA</div>
-            <p>Identifica objetos, textos y lugares usando la cámara.</p>
-            <div class="buttons">
-                <a class="btn play" href="#" target="_blank">Play Store</a>
-                <a class="btn ios" href="#" target="_blank">iPhone</a>
-                <a class="btn web" href="https://lens.google" target="_blank">Web</a>
-            </div>
-        </div>
-    </div>
+    <p>
+        🌐 Sitio oficial:
+        <a href="https://soportepoderdigital.cl" target="_blank">soportepoderdigital.cl</a>
+    </p>
+</div>
 
-    <!-- APP 3 -->
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4" alt="">
-        <div class="card-content">
-            <h2>ChatGPT</h2>
-            <div class="tag">🧠 IA</div>
-            <p>Asistente inteligente para escribir, aprender y crear ideas.</p>
-            <div class="buttons">
-                <a class="btn play" href="#" target="_blank">Play Store</a>
-                <a class="btn ios" href="#" target="_blank">iPhone</a>
-                <a class="btn web" href="https://chat.openai.com" target="_blank">Web</a>
-            </div>
-        </div>
-    </div>
+<!-- BASES -->
+<div class="section">
+    <h2>⚖️ Bases y condiciones</h2>
+    <ul>
+        <li>Este sitio es un directorio informativo.</li>
+        <li>No realiza ventas ni pagos directos.</li>
+        <li>Todos los enlaces son externos.</li>
+        <li>El usuario es responsable del uso de servicios externos.</li>
+        <li>Las apps pueden cambiar sin aviso.</li>
+    </ul>
+</div>
 
-    <!-- APP 4 -->
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="">
-        <div class="card-content">
-            <h2>Canva</h2>
-            <div class="tag">🎨 Diseño</div>
-            <p>Crea diseños, logos, presentaciones y contenido visual.</p>
-            <div class="buttons">
-                <a class="btn play" href="https://play.google.com" target="_blank">Play Store</a>
-                <a class="btn ios" href="https://apps.apple.com" target="_blank">iPhone</a>
-                <a class="btn web" href="https://www.canva.com" target="_blank">Web</a>
-            </div>
-        </div>
-    </div>
+<!-- HISTORIA -->
+<div class="section">
+    <h2>📖 Historia del ecosistema</h2>
+    <p>
+        Poder Digital nace como un proyecto de organización de herramientas digitales dispersas en internet,
+        evolucionando hacia un ecosistema educativo e informativo.
+    </p>
+    <p>
+        Hoy integra aplicaciones, IA, música digital, productividad y recursos tecnológicos en un solo lugar.
+    </p>
+</div>
 
-    <!-- APP 5 -->
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="">
-        <div class="card-content">
-            <h2>Spotify</h2>
-            <div class="tag">🎧 Música</div>
-            <p>Escucha millones de canciones gratis con anuncios.</p>
-            <div class="buttons">
-                <a class="btn play" href="https://play.google.com" target="_blank">Play Store</a>
-                <a class="btn ios" href="https://apps.apple.com" target="_blank">iPhone</a>
-                <a class="btn web" href="https://www.spotify.com" target="_blank">Web</a>
+<!-- MUSICA -->
+<div class="section">
+    <h2>🎵 Historia de la música digital</h2>
+    <p>
+        La música ha evolucionado desde grabaciones tradicionales hasta la creación con inteligencia artificial.
+        Hoy cualquier persona puede generar canciones completas con IA sin conocimientos técnicos.
+    </p>
+</div>
+
+<!-- APPS -->
+<div class="section">
+    <h2>📱 Apps destacadas</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+            <div class="card-content">
+                <h3>Shazam</h3>
+                <div class="tag">🎵 Música</div>
+                <p>Detecta canciones al instante.</p>
+                <div class="buttons">
+                    <a class="btn web" href="https://www.shazam.com" target="_blank">Web</a>
+                </div>
             </div>
         </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f">
+            <div class="card-content">
+                <h3>Google Lens</h3>
+                <div class="tag">📷 IA</div>
+                <p>Identifica objetos con la cámara.</p>
+                <div class="buttons">
+                    <a class="btn web" href="https://lens.google" target="_blank">Web</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+            <div class="card-content">
+                <h3>ChatGPT</h3>
+                <div class="tag">🧠 IA</div>
+                <p>Asistente inteligente de texto.</p>
+                <div class="buttons">
+                    <a class="btn web" href="https://chatgpt.com" target="_blank">Web</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+            <div class="card-content">
+                <h3>Canva</h3>
+                <div class="tag">🎨 Diseño</div>
+                <p>Crea diseños fácilmente.</p>
+                <div class="buttons">
+                    <a class="btn web" href="https://www.canva.com" target="_blank">Web</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+            <div class="card-content">
+                <h3>Spotify</h3>
+                <div class="tag">🎧 Música</div>
+                <p>Escucha música online.</p>
+                <div class="buttons">
+                    <a class="btn web" href="https://www.spotify.com" target="_blank">Web</a>
+                </div>
+            </div>
+        </div>
+
     </div>
+</div>
 
 </div>
 
 <footer>
-    Directorio de apps 🚀 | editable y expandible
+    <p>Soporte Poder Digital | App Store Informativa</p>
+    <p>
+        © 2026 | <a href="https://soportepoderdigital.cl" target="_blank">soportepoderdigital.cl</a>
+    </p>
 </footer>
 
 </body>
