@@ -505,7 +505,141 @@ body{
     }
 }
 </style>
-    
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TikTok Embebido</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0f172a;
+    padding:30px 15px;
+}
+
+.tiktok-section{
+    max-width:500px;
+    margin:auto;
+}
+
+.tiktok-card{
+    background:#ffffff;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.tiktok-header{
+    padding:20px;
+    text-align:center;
+    background:linear-gradient(135deg,#000000,#ff0050,#00f2ea);
+    color:white;
+}
+
+.tiktok-header h2{
+    font-size:1.5rem;
+    margin-bottom:8px;
+}
+
+.tiktok-header p{
+    font-size:.95rem;
+    opacity:.95;
+}
+
+.tiktok-embed-container{
+    width:100%;
+}
+
+.tiktok-embed-container iframe{
+    width:100%;
+    height:740px;
+    border:none;
+    display:block;
+}
+
+.tiktok-footer{
+    padding:18px;
+    text-align:center;
+}
+
+.tiktok-btn{
+    display:inline-block;
+    background:#ff0050;
+    color:white;
+    text-decoration:none;
+    padding:12px 24px;
+    border-radius:50px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.tiktok-btn:hover{
+    transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+
+    .tiktok-embed-container iframe{
+        height:680px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .tiktok-embed-container iframe{
+        height:620px;
+    }
+
+    .tiktok-header h2{
+        font-size:1.25rem;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<section class="tiktok-section">
+
+    <div class="tiktok-card">
+
+        <div class="tiktok-header">
+            <h2>🎵 Video de TikTok</h2>
+            <p>Contenido compartido desde TikTok</p>
+        </div>
+
+        <div class="tiktok-embed-container">
+            <iframe
+                src="https://www.tiktok.com/player/v1/7642721613342952735"
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+
+        <div class="tiktok-footer">
+            <a class="tiktok-btn"
+               href="https://www.tiktok.com/@desarrollopersonall0/video/7642721613342952735"
+               target="_blank">
+               Ver en TikTok
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>   
     <div
 
 !-- MENÚ -->
