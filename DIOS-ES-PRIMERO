@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poder Digital | Directorio de Recursos e Información</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #f4f4f4;
+            --text: #333;
+            --accent: #ff7a00;
+            --card-bg: #ffffff;
+            --border: #ddd;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0; 
+            line-height: 1.6;
+        }
+
+        .info-bar {
+            background: #e9ecef;
+            padding: 10px 20px;
+            font-size: 11px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            color: #665;
+        }
+
+        header {
+            background: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        h1 { margin: 0; font-size: 1.8rem; color: var(--accent); letter-spacing: 1px; }
+
+        .search-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .search-input {
+            width: 100%; 
+            padding: 15px; 
+            border: 2px solid var(--accent); 
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .main-container { max-width: 1200px; margin: auto; padding: 20px; }
+
+        /* Misiones y Propósitos */
+        .ecosistema-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .ecosistema-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        .ecosistema-card h2 { margin-top: 0; font-size: 1.2rem; color: #111; }
+
+        /* Secciones de Prensa / Editorial */
+        .editorial {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        /* ACORDIONES Y CATEGORÍAS */
+        .category {
+            background: white;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background: #f8f9fa;
+            transition: background 0.3s;
+        }
+        .category-header:hover { background: #f1f3f5; }
+
+        .gallery {
+            display: none;
+            padding: 20px;
+            background: #fff;
+            border-top: 1px solid var(--border);
+        }
+
+        /* GRID DE CURSOS */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .course {
+            background: #fafafa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .course img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .course h3 { margin: 10px 0; font-size: 1.1rem; color: #000; }
+
+        /* BOTONES */
+        .botones {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-buy {
+            background: var(--accent);
+            padding: 12px;  
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            font-size: 13px;
+            transition: background 0.2s;
+        }
+        .btn-buy:hover { background: #e06b00; }
+
+        .btn-qr {
+            background: #e9ecef;
+            color: #333;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* OVERLAY QR */
+        #qr-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #qr-overlay img { width: 80vw; max-width: 350px; border-radius: 20px; }
+        .cerrar { position: absolute; top: 25px; right: 25px; font-size: 35px; color: white; font-weight: bold; cursor: pointer; }
+
+        /* NOTICIAS ESTILO PRENSA */
+        .noticia-prensa {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            margin: 40px auto;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .noticia-header { padding: 30px; border-bottom: 1px solid #eaeaea; }
+        .noticia-body { padding: 30px; }
+
+        /* VIDEOS Y EMEDIDOS */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #f2f2f2;
+            margin: 20px 0;
+        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        /* WHATSAPP */
+        .whatsapp-bubble {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 34px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+
+        footer { text-align: center; padding: 40px 20px; background: #000; color: #fff; font-size: 0.85rem; margin-top: 40px; }
+        footer a { color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="info-bar">
+    <i class="fas fa-university"></i> PODER DIGITAL | Directorio Informativo de Soporte y Recursos Digitales
+</div>
+
+
+<a href="index.html">|Inicio /</a>
+<a href="acceso-libre.html" style="color:red;">/Acceso Libre /</a>
+<a href="acceso-exclusivo.html">/Acceso Exclusivo</a>
+<a href="virtual.html">/Virtual</a>
+
+
+<header>
+    <h1>DIOS ES PRIMERO</h1>
+  
+<section class="conexion-total">
+  <div class="conexion-container">
+    <div class="conexion-header">
+      <span class="conexion-badge">✦ Reflexión Espiritual</span>
+      <h2>Conexión Total</h2>
+      <p>
+        Una mirada a la grandeza de Dios: el principio, el fin y la eternidad.
+      </p>
+    </div>
+
+    <div class="conexion-grid">
+
+      <div class="conexion-card">
+        <div class="icono">❤️</div>
+        <h3>Amar a Dios</h3>
+        <p>
+          Dios debe ocupar el primer lugar en nuestra vida. Amarlo significa
+          confiar plenamente en Él y dejar nuestras preocupaciones en sus manos.
+        </p>
+        <blockquote>
+          "Ama a Dios sobre todas las cosas."
+        </blockquote>
+      </div>
+
+      <div class="conexion-card">
+        <div class="icono">∞</div>
+        <h3>El Principio y la Eternidad</h3>
+        <p>
+          Dios existía antes de toda creación. Él está más allá del tiempo y
+          permanece para siempre.
+        </p>
+        <ul>
+          <li>Dios estaba antes que todo.</li>
+          <li>Dios es eterno.</li>
+          <li>Dios es el principio y el fin.</li>
+          <li>Todo procede de Él.</li>
+        </ul>
+      </div>
+
+      <div class="conexion-card">
+        <div class="icono">Α Ω</div>
+        <h3>Alfa y Omega</h3>
+        <p>
+          Dios es el origen y el destino de toda existencia. No tiene comienzo
+          ni final.
+        </p>
+        <ul>
+          <li>El origen de todo.</li>
+          <li>El destino final.</li>
+          <li>El infinito.</li>
+          <li>La eternidad.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="conexion-reflexion">
+      <h3>✦ Reflexión</h3>
+      <p>
+        Dios no está limitado por el tiempo. Existía antes de la creación,
+        permanece en el presente y continuará existiendo por toda la eternidad.
+        Él es el antes, el ahora y el después. Por eso merece nuestra confianza,
+        nuestra adoración y nuestro amor por encima de todo.
+      </p>
+
+      <div class="versiculo">
+        “Yo soy el Alfa y la Omega, el principio y el fin, el primero y el último.”
+        <span>Apocalipsis 22:13</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.conexion-total{
+    width:100%;
+    padding:80px 20px;
+    background:
+    radial-gradient(circle at top, rgba(255,215,0,.15), transparent 40%),
+    linear-gradient(135deg,#07111f,#102742,#07111f);
+    font-family:'Segoe UI',sans-serif;
+    color:white;
+}
+
+.conexion-container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.conexion-header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.conexion-badge{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:50px;
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    font-size:.9rem;
+}
+
+.conexion-header h2{
+    margin:18px 0 12px;
+    font-size:clamp(2.3rem,5vw,4rem);
+    background:linear-gradient(90deg,#ffd700,#fff7c2,#ffd700);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.conexion-header p{
+    max-width:700px;
+    margin:auto;
+    opacity:.9;
+    font-size:1.1rem;
+}
+
+.conexion-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.conexion-card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(12px);
+    border-radius:24px;
+    padding:30px;
+    transition:.35s;
+}
+
+.conexion-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(255,215,0,.15);
+    border-color:rgba(255,215,0,.4);
+}
+
+.icono{
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+.conexion-card h3{
+    color:#ffd700;
+    margin-bottom:15px;
+}
+
+.conexion-card p{
+    line-height:1.7;
+}
+
+.conexion-card ul{
+    padding-left:20px;
+    margin-top:15px;
+}
+
+.conexion-card li{
+    margin-bottom:8px;
+}
+
+.conexion-card blockquote{
+    margin-top:18px;
+    padding:15px;
+    border-left:4px solid #ffd700;
+    background:rgba(255,215,0,.08);
+    border-radius:10px;
+    font-style:italic;
+}
+
+.conexion-reflexion{
+    margin-top:60px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:30px;
+    padding:40px;
+    text-align:center;
+}
+
+.conexion-reflexion h3{
+    color:#ffd700;
+    margin-bottom:20px;
+    font-size:1.8rem;
+}
+
+.conexion-reflexion p{
+    max-width:850px;
+    margin:auto;
+    line-height:1.9;
+    font-size:1.05rem;
+}
+
+.versiculo{
+    margin-top:30px;
+    padding:25px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#ffd700,#ffec8b);
+    color:#111;
+    font-size:1.2rem;
+    font-weight:600;
+}
+
+.versiculo span{
+    display:block;
+    margin-top:10px;
+    font-size:.95rem;
+    font-weight:700;
+}
+
+@media(max-width:768px){
+    .conexion-total{
+        padding:60px 15px;
+    }
+
+    .conexion-reflexion{
+        padding:25px;
+    }
+}
+</style>
+    
+    <div
+
+!-- MENÚ -->
+<nav>
+  <a href="#ia">🧠 IA</a>
+  <a href="#educacion">🎓 Educación</a>
+  <a href="#idiomas">🗣️ Idiomas</a>
+  <a href="#programacion">💻 Programación</a>
+  <a href="#video">🎬 Video</a>
+  <a href="#musica">🎵 Música</a>
+  <a href="#marketing">📢 Marketing</a>
+  <a href="#utilidades">🧰 Utilidades</a>
+  <a href="#instalables">📦 Instalables</a>
+<a href="#noticias">🚀 Noticias</a>
+</nav>
+
+<div style="background: linear-gradient(135deg, #e8f5e9, #f1f8e9); border-left: 5px solid #4caf50; padding: 15px; margin: 20px 0; border-radius: 10px;">
+    <h3 style="margin-top: 0; color: #2e7d32;">🆓 Recursos Gratuitos y de Libre Acceso</h3>
+
+    <p>
+        En esta sección encontrarás herramientas, aplicaciones, cursos y recursos digitales que pueden utilizarse gratuitamente para aprender, practicar, crear proyectos personales o desarrollar nuevas habilidades.
+    </p>
+
+    <p>
+        Algunos recursos son completamente libres, mientras que otros ofrecen versiones gratuitas con ciertas limitaciones o requieren una licencia para uso comercial, profesional o empresarial.
+    </p>
+
+    <p>
+        Nuestro objetivo es acercar oportunidades digitales accesibles para estudiantes, emprendedores, creadores y cualquier persona interesada en aprender y aprovechar la tecnología.
+    </p>
+
+    <p style="margin-bottom: 0;">
+        <strong>Importante:</strong> Revisa siempre las condiciones de uso y licencias de cada plataforma antes de utilizarla en proyectos comerciales.
+    </p>
+</div>
+
+
+ class="search-container">
+        <input type="text" id="buscador" class="search-input" placeholder="Escribe para buscar recursos..." onkeyup="filtrarContenido()">
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- Sección de Objetivos / Misiones -->
+    <div class="ecosistema-grid">
+        <div class="ecosistema-card">
+            <h2>🌱 Nuestra misión</h2>
+            <p>Invitar a las personas a crear y desarrollar su propia parte dentro de un ecosistema digital, facilitando el acceso a recursos, plataformas y oportunidades...</p>
+        </div>
+        <div class="ecosistema-card">
+            <h2>🧭 Nuestro propósito</h2>
+            <p>Servir como un punto de entrada al ecosistema digital, conectando a emprendedores con herramientas y recursos confiables...</p>
+        </div>
+        <div class="ecosistema-card">
+            <h2>✨ Nuestra visión</h2>
+            <p>Impulsar la creación de ecosistemas digitales personales, donde cada emprendedor pueda comenzar, aprender y evolucionar a su propio ritmo...</p>
+        </div>
+        <div class="ecosistema-card">
+            <h2>💎 Nuestro enfoque</h2>
+            <p>Ofrecer un directorio Informativo de recursos y oportunidades digitales, priorizando la claridad, la utilidad y el crecimiento consciente.</p>
+        </div>
+    </div>
+
+    <!-- Videos Destacados en la cabecera -->
+    <div class="video-container">
+        <iframe src="https://www.youtube-nocookie.com/embed/eW2qlKa6oHw" title="Contenido audiovisual" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+
+
+
+
+---
+
+<!-- IA -->
+<section id="ia">
+
+<h2 id="InteligenciaArtificial">
+🧠 Inteligencia Artificial
+</h2>
+<ul>
+<li> <a href="#ChatGPT">ChatGPT</a> </li>
+<li> <a href="#GoogleGemini">Google Gemini</a> </li>
+<li> <a href="#GoogleAIEdgeGallery">Google AI Edge Gallery</a> </li>
+<li> <a href="#Luvvoice">Luvvoice</a> </li>
+<li> <a href="#YouLearnAI">YouLearn AI</a> </li>
+<li> <a href="#SkyworkAI">Skywork AI</a> </li>
+
+<li> <a href="#MusicGPT">MusicGPT</a> </li>
+<li> <a href="#SunoAI">Suno AI</a> </li>
+<li> <a href="#PixVerseAI">PixVerse AI</a> </li>
+<li> <a href="#AnthropicLearn" >Anthropic Learn</a> </li>
+</ul>
+</section>
+
+---
+
+
+
+
+<!-- EDUCACION -->
+<section id="educacion">
+<h2>🎓 Educación / Cursos</h2>
+<ul>
+<li> <a href="#coursera" >Coursera</a> </li>
+<li> <a href="#edX">edX</a> </li>
+
+
+<li> <a href="#Udemy">Udemy</a> </li>
+<li> <a href="#Platzi">Platzi</a> </li>
+<li> <a href="#SENCE">SENCE</a> </li>
+<li> <a href="#ChileValora">ChileValora</a> </li>
+<li> <a href="#LinkedInLearningIA">LinkedIn Learning IA</a> </li>
+
+</ul>
+</section>
+
+---
+
+<!-- IDIOMAS -->
+<section id="idiomas">
+<h2>🗣️ Idiomas</h2>
+<ul>
+<li> <a href="#ELLLO">ELLLO.org</a> </li>
+<li> <a href="#vhsLearnportal">vhs-Lernportal</a> </li>
+<li> <a href="seccion-libre/playphrase.html">PlayPhrase.me</a> </li>
+</ul>
+</section>
+
+
+
+---
+
+<!-- PROGRAMACION -->
+<section id="programacion">
+<h2>💻 Programación</h2>
+<ul>
+<li> <a href="#Exercism">Exercism</a> </li>
+</ul>
+</section>
+
+---
+
+<!-- VIDEO -->
+<section id="video">
+<h2>🎬 Video / Diseño</h2>
+<ul>
+<li> <a href="#PixVerseAI">PixVerse AI</a> </li>
+<li> <a href="seccion-libre/apob.html">APOB.AI (Crea Influencers Virtuales</a> </li>
+<li> <a href="#SkyworkAI">Skywork AI</li>
+
+<li><a href="seccion-libre/sync-so.html">Sync-so (Sincronización de voz con sync -3)</a></li>
+
+
+<li><a href="seccion-libre/filmora.html">Filmora</a></li>
+
+</ul>
+</section>
+
+---
+
+<!-- MUSICA -->
+<section id="musica">
+<h2>🎵 Música / Audio</h2>
+<ul>
+<li> <a href="#SunoAI">Suno AI</li>
+
+<li> <a href="#MusicGPT">MusicGPT</li>
+
+<li><a href="seccion-libre/shazam.html">Shazam</a> </li>
+
+
+</ul>
+</section>
+
+---
+
+<!-- MARKETING -->
+<section id="marketing">
+<h2>📢 Marketing</h2>
+<ul>
+
+
+<li><a href="seccion-libre/meta-ads.html">Meta Ads</a></li>
+
+</ul>
+</section>
+
+---
+
+<!-- UTILIDADES -->
+<section id="utilidades">
+<h2>🧰 Utilidades</h2>
+<ul>
+<li> <a href="#123Apps">123Apps</li>
+<li> <a href="#WolframAlpha">WolframAlpha</li>
+<li> <a href="#AndroidAssistant">Android Assistant</li>
+<li> <a href="#Digitalbookio">Digitalbook.io</li>
+<li> <a href="#StartMyCar">StartMyCar</li>
+<li><a href="seccion-libre/mila.html">Mila(Presentaciones Rapidas)</a></li>
+
+
+
+</ul>
+</section>
+
+---
+
+
+
+
+
+<!-INSTALABLES -->
+<section id="instalables">
+<h2>🚀 Instalables</h2>
+<ul>
+<li> <a href="seccion-libre/LTX-2punto3.html">LTX-2.3(IA intalable en el PC para usar sin internet)</li>
+</ul>
+</section>
+ </div
+
+
+
+
+
+<!-- NOTICIAS -->
+<section id="noticias">
+<h2>🚀 Noticias / Becas</h2>
+<ul>
+<li> <a href="seccion-libre/notice.html">SENCE Chile: Aprende Inteligencia Artificial con Microsoft</li>
+</ul>
+</section>
+ </div
+
+   
+
+
+
+
+  <!-- =============================================================== -->
+    <!-- NOTICIAS SII CHILE -->
+    <!-- =============================================================== -->
+    <article class="noticia-prensa">
+        <header class="noticia-header">
+            <span style="font-size:0.85em;color:#0073e6;font-weight:bold;letter-spacing:1px;">ACTUALIDAD DIGITAL · CHILE</span>
+            <h2 style="margin:15px 0 10px 0;font-size:1.8rem;color:#222;">Nueva exigencia tributaria en Chile entra en vigencia</h2>
+            <p style="color:#666;font-size:0.95em;">El Servicio de Impuestos Internos refuerza la formalización de actividades en entornos digitales.</p>
+        </header>
+        <div class="noticia-body">
+            <p>Desde el <strong>2 de enero de 2026</strong>, el <strong>Servicio de Impuestos Internos (SII)</strong> comenzó a aplicar exigencias normativas que obligan a verificar el inicio de actividades de plataformas comerciales.</p>
+            <p>La normativa <strong>no prohíbe la existencia de páginas web informativas o de difusión</strong> como este directorio, por lo que este portal sigue operando con total normalidad para fines educativos.</p>
+        </div>
+    </article>
+
+    <!-- Videos Adicionales -->
+    <div class="video-container">
+        <iframe src="https://www.youtube-nocookie.com/embed/3wkuqRFXNvI" title="Contenido audiovisual" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+<a href="index.html">| Inicio /</a>
+<a href="acceso-libre.html" style="color:red;">/ Acceso Libre /</a>
+<a href="acceso-exclusivo.html">/ Acceso Exclusivo</a>
+<a href="360°.html">/360°</a>
+</div> <!-- FIN MAIN CONTAINER -->
+
+<!-- QR OVERLAY LAYER -->
+<div id="qr-overlay">
+    <span class="cerrar" onclick="cerrarQR()">✕</span>
+    <img id="qr-overlay-img" src="" alt="Código QR">
+</div>
+
+<!-- BOTÓN GENERAL WHATSAPP -->
+<a class="whatsapp-bubble" href="https://wa.me/56946657202" target="_blank">💬</a>
+
+<footer>
+    <p><strong>soportepoderdigital.cl | Directorio de Información</strong></p>
+    <p>Este sitio es un directorio informativo independiente. Los enlaces redirigen a plataformas externas cuya utilización y registro es de total responsabilidad del usuario.</p>
+    <p>© 2026 Soporte Poder Digital. Todos los derechos reservados. | <a href="privacidad.html">Política de Privacidad</a> | <a href="terminos.html">Términos y Condiciones</a></p>
+</footer>
+
+<script>
+    // Buscador funcional integrado
+    function filtrarContenido() {
+        let input = document.getElementById('buscador').value.toLowerCase();
+        let cards = document.getElementsByClassName('item-card');
+
+        for (let i = 0; i < cards.length; i++) {
+            let title = cards[i].querySelector('.item-title').innerText.toLowerCase();
+            let desc = cards[i].querySelector('.item-desc') ? cards[i].querySelector('.item-desc').innerText.toLowerCase() : "";
+            
+            if (title.includes(input) || desc.includes(input)) {
+                cards[i].style.display = "block";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+
+    // Controlador de Acordeón Único
+    function toggleGallery(id){
+        let g = document.getElementById(id);
+        g.style.display = (g.style.display === "block") ? "none" : "block";
+    }
+
+    // Funciones del visualizador de códigos QR
+    function mostrarQR(ruta){
+        document.getElementById("qr-overlay-img").src = ruta;
+        document.getElementById("qr-overlay").style.display = "flex";
+    }
+
+    function cerrarQR(){
+        document.getElementById("qr-overlay").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
