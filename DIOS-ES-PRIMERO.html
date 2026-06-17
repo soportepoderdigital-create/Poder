@@ -250,8 +250,7 @@
 
 <header>
     <h1>DIOS ES PRIMERO</h1>
-  
-<section class="conexion-total">
+  <section class="conexion-total">
   <div class="conexion-container">
     <div class="conexion-header">
       <span class="conexion-badge">✦ Reflexión Espiritual</span>
@@ -270,6 +269,7 @@
           Dios debe ocupar el primer lugar en nuestra vida. Amarlo significa
           confiar plenamente en Él y dejar nuestras preocupaciones en sus manos.
         </p>
+
         <blockquote>
           "Ama a Dios sobre todas las cosas."
         </blockquote>
@@ -282,6 +282,7 @@
           Dios existía antes de toda creación. Él está más allá del tiempo y
           permanece para siempre.
         </p>
+
         <ul>
           <li>Dios estaba antes que todo.</li>
           <li>Dios es eterno.</li>
@@ -297,6 +298,7 @@
           Dios es el origen y el destino de toda existencia. No tiene comienzo
           ni final.
         </p>
+
         <ul>
           <li>El origen de todo.</li>
           <li>El destino final.</li>
@@ -309,6 +311,7 @@
 
     <div class="conexion-reflexion">
       <h3>✦ Reflexión</h3>
+
       <p>
         Dios no está limitado por el tiempo. Existía antes de la creación,
         permanece en el presente y continuará existiendo por toda la eternidad.
@@ -325,8 +328,24 @@
 </section>
 
 <style>
+/* Corrección global */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
 .conexion-total{
     width:100%;
+    max-width:100%;
+    overflow:hidden;
     padding:80px 20px;
     background:
     radial-gradient(circle at top, rgba(255,215,0,.15), transparent 40%),
@@ -336,8 +355,9 @@
 }
 
 .conexion-container{
+    width:100%;
     max-width:1200px;
-    margin:auto;
+    margin:0 auto;
 }
 
 .conexion-header{
@@ -368,6 +388,7 @@
     margin:auto;
     opacity:.9;
     font-size:1.1rem;
+    line-height:1.7;
 }
 
 .conexion-grid{
@@ -382,7 +403,7 @@
     backdrop-filter:blur(12px);
     border-radius:24px;
     padding:30px;
-    transition:.35s;
+    transition:.35s ease;
 }
 
 .conexion-card:hover{
@@ -402,24 +423,25 @@
 }
 
 .conexion-card p{
-    line-height:1.7;
+    line-height:1.8;
 }
 
 .conexion-card ul{
-    padding-left:20px;
     margin-top:15px;
+    padding-left:20px;
 }
 
 .conexion-card li{
     margin-bottom:8px;
+    line-height:1.6;
 }
 
 .conexion-card blockquote{
-    margin-top:18px;
+    margin-top:20px;
     padding:15px;
     border-left:4px solid #ffd700;
     background:rgba(255,215,0,.08);
-    border-radius:10px;
+    border-radius:12px;
     font-style:italic;
 }
 
@@ -451,8 +473,9 @@
     border-radius:20px;
     background:linear-gradient(135deg,#ffd700,#ffec8b);
     color:#111;
-    font-size:1.2rem;
+    font-size:1.15rem;
     font-weight:600;
+    line-height:1.8;
 }
 
 .versiculo span{
@@ -462,13 +485,23 @@
     font-weight:700;
 }
 
-@media(max-width:768px){
+@media (max-width:768px){
+
     .conexion-total{
         padding:60px 15px;
     }
 
+    .conexion-card{
+        padding:25px;
+    }
+
     .conexion-reflexion{
         padding:25px;
+    }
+
+    .versiculo{
+        padding:20px;
+        font-size:1rem;
     }
 }
 </style>
