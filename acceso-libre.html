@@ -256,21 +256,18 @@
     <p>Los enlaces publicados redirigen a plataformas externas y se proporcionan con fines educativos, informativos, recreativos y desarrollo personal.</p>
     <p>Algunos enlaces pueden tener carácter patrocinado; en dichos casos, este sitio podría percibir una comisión sin que ello implique un costo adicional para el usuario.</p>
     
-    <div
+   
 
-!-- MENÚ -->
-<nav>
-  <a href="#ia">🧠 IA</a>
-  <a href="#educacion">🎓 Educación</a>
-  <a href="#idiomas">🗣️ Idiomas</a>
-  <a href="#programacion">💻 Programación</a>
-  <a href="#video">🎬 Video</a>
-  <a href="#musica">🎵 Música</a>
-  <a href="#marketing">📢 Marketing</a>
-  <a href="#utilidades">🧰 Utilidades</a>
-  <a href="#instalables">📦 Instalables</a>
-<a href="#noticias">🚀 Noticias</a>
-</nav>
+<div id="menu-libre"></div>
+
+<script>
+fetch("/menu-libre.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-libre").innerHTML = data;
+  });
+</script>
+
 
 <div style="background: linear-gradient(135deg, #e8f5e9, #f1f8e9); border-left: 5px solid #4caf50; padding: 15px; margin: 20px 0; border-radius: 10px;">
     <h3 style="margin-top: 0; color: #2e7d32;">🆓 Recursos Gratuitos y de Libre Acceso</h3>
