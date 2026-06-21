@@ -258,6 +258,17 @@ fetch("/menu-inicio.html")
 
  <h1>PODER DIGITAL</h1>
  
+ 
+
+<div id="menu-libre"></div>
+
+<script>
+fetch("/menu-libre.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-libre").innerHTML = data;
+  });
+</script>
 
 
 <section class="apob-section">
