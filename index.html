@@ -108,9 +108,15 @@
 </div>
 
 <nav>
-  <a href="index.html" style="color:red;">|Inicio</a>/<a href="acceso-libre.html">Acceso Libre</a>/<a href="acceso-exclusivo.html">Acceso Exclusivo</a>/<a href="app-store.html">App Store</a>
-</nav>
+ <div id="menu-inicio"></div>
 
+<script>
+fetch("/menu-inicio.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-inicio").innerHTML = data;
+  });
+</script>
 
 <header>
     <h1>PODER DIGITAL</h1>
