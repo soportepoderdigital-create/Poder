@@ -241,8 +241,15 @@
     <i class="fas fa-university"></i> PODER DIGITAL | Directorio Informativo de Soporte y Recursos Digitales
 </div>
 
+<nav id="menu-inicio"></nav>
 
-<a href="../index.html">| Inicio /</a><a href="../acceso-libre.html" style="color:red;">/ Acceso Libre /</a><a href="../acceso-exclusivo.html">/ Acceso Exclusivo /</a><a href="../360°.html">/360°|</a>
+<script>
+fetch("/menu-inicio.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-inicio").innerHTML = data;
+  });
+</script>
 
 <header>
    
@@ -252,17 +259,6 @@
  <h1>PODER DIGITAL</h1>
  
 
-<nav>
-  <a href="../acceso-libre.html#ia">🧠 IA</a>
-  <a href="../acceso-libre.html#educacion">🎓 Educación</a>
-  <a href="../acceso-libre.html#idiomas">🗣️ Idiomas</a>
-  <a href="../acceso-libre.html#programacion">💻 Programación</a>
-  <a href="../acceso-libre.html#video">🎬 Video</a>
-  <a href="../acceso-libre.html#musica">🎵 Música</a>
-  <a href="../acceso-libre.html#marketing">📢 Marketing</a>
-  <a href="../acceso-libre.html#utilidades">🧰 Utilidades</a>
-  <a href="../acceso-libre.html#noticias">🚀 Noticias</a>
-</nav>
 
 <section class="apob-section">
   <div class="apob-container">
