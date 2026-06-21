@@ -396,21 +396,17 @@ fetch("/menu-libre.html")
 
 ---
 
-<!-- VIDEO -->
-<section id="video">
-<h2>🎬 Video / Diseño</h2>
-<ul>
-<li> <a href="#PixVerseAI">PixVerse AI</a> </li>
-<li> <a href="seccion-libre/apob.html">APOB.AI (Crea Influencers Virtuales</a> </li>
-<li> <a href="#SkyworkAI">Skywork AI</li>
+<div id="menu-video"></div>
 
-<li><a href="seccion-libre/sync-so.html">Sync-so (Sincronización de voz con sync -3)</a></li>
+<h1>Video</h1>
 
-
-<li><a href="seccion-libre/filmora.html">Filmora</a></li>
-
-</ul>
-</section>
+<script>
+fetch("/menu-video.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-video").innerHTML = data;
+  });
+</script>
 
 ---
 
