@@ -417,25 +417,32 @@ fetch("/menu-libre.html")
 
 </section>
 ☆-- VOLVER --☆
-<nav>
-  <a href="../acceso-libre.html#ia">🧠 IA</a>
-  <a href="../acceso-libre.html#educacion">🎓 Educación</a>
-  <a href="../acceso-libre.html#idiomas">🗣️ Idiomas</a>
-  <a href="../acceso-libre.html#programacion">💻 Programación</a>
-  <a href="../acceso-libre.html#video">🎬 Video</a>
-  <a href="../acceso-libre.html#musica">🎵 Música</a>
-  <a href="../acceso-libre.html#marketing">📢 Marketing</a>
-  <a href="../acceso-libre.html#utilidades">🧰 Utilidades</a>
-  <a href="../acceso-libre.html#noticias">🚀 Noticias</a>
-</nav>
 
+<div id="menu-libre"></div>
+
+<script>
+fetch("/menu-libre.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-libre").innerHTML = data;
+  });
+</script>
 
 <div>
 
 
 </header>
 
-<a href="../index.html">| Inicio /</a><a href="../acceso-libre.html" style="color:red;">/ Acceso Libre /</a><a href="../acceso-exclusivo.html">/ Acceso Exclusivo /</a><a href="../360°.html">/360°|</a>
+<nav id="menu-inicio"></nav>
+
+<script>
+fetch("/menu-inicio.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-inicio").innerHTML = data;
+  });
+</script>
+
     <!-- Videos Destacados en la cabecera -->
     <div class="video-container">
         <iframe src="https://www.youtube-nocookie.com/embed/hTddAWDpGXg" title="Contenido audiovisual" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
