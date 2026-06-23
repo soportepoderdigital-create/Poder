@@ -241,8 +241,15 @@
     <i class="fas fa-university"></i> PODER DIGITAL | Directorio Informativo de Soporte y Recursos Digitales
 </div>
 
+<nav id="menu-inicio"></nav>
 
-<a href="../index.html">| Inicio /</a><a href="../acceso-libre.html" style="color:red;">/ Acceso Libre /</a><a href="../acceso-exclusivo.html">/ Acceso Exclusivo /</a><a href="../360°.html">/360°|</a>
+<script>
+fetch("/menu-inicio.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-inicio").innerHTML = data;
+  });
+</script>
 
 <header>
    
@@ -251,33 +258,29 @@
 
  <h1>PODER DIGITAL</h1>
  
+ 
 
-<nav>
-  <a href="../acceso-libre.html#ia">🧠 IA</a>
-  <a href="../acceso-libre.html#educacion">🎓 Educación</a>
-  <a href="../acceso-libre.html#idiomas">🗣️ Idiomas</a>
-  <a href="../acceso-libre.html#programacion">💻 Programación</a>
-  <a href="../acceso-libre.html#video">🎬 Video</a>
-  <a href="../acceso-libre.html#musica">🎵 Música</a>
-  <a href="../acceso-libre.html#marketing">📢 Marketing</a>
-  <a href="../acceso-libre.html#utilidades">🧰 Utilidades</a>
-  <a href="../acceso-libre.html#noticias">🚀 Noticias</a>
-</nav>
+<div id="menu-libre"></div>
+
+<script>
+fetch("/menu-libre.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-libre").innerHTML = data;
+  });
+</script>
 
 
 <style>
-/* ====== TARJETA PRINCIPAL ====== */
 .news-card{
-    background:#ffffff;
+    background:#fff;
     border-radius:18px;
     padding:25px;
     margin:25px 0;
     box-shadow:0 4px 15px rgba(0,0,0,.08);
     line-height:1.7;
-    font-family:Arial, sans-serif;
 }
 
-/* ====== IMAGEN ====== */
 .news-card img{
     width:100%;
     max-height:350px;
@@ -286,118 +289,74 @@
     margin-bottom:20px;
 }
 
-/* ====== TITULOS ====== */
+.news-card h2{
+    color:#1a73e8;
+    margin-bottom:15px;
+}
+
 .news-card h3{
-    color:#f5c518;
-    margin-top:10px;
-    font-size:22px;
+    color:#0f9d58;
+    margin-top:25px;
 }
 
-.news-card p{
-    color:#333;
+.news-card h4{
+    color:#ea4335;
+    margin-top:15px;
 }
 
-/* ====== LISTAS ====== */
-.news-card ul{
+.news-card ul,
+.news-card ol{
     padding-left:22px;
 }
 
-/* ====== DESTACADO ====== */
 .destacado{
-    background:#fff8d6;
-    border-left:5px solid #f5c518;
+    background:#e8f0fe;
+    border-left:5px solid #1a73e8;
     padding:15px;
     border-radius:8px;
-    margin:20px 0;
-}
-
-/* ====== BOTÓN ====== */
-.btn{
-    display:inline-block;
-    margin-top:15px;
-    padding:12px 18px;
-    background:#111;
-    color:#f5c518;
-    text-decoration:none;
-    border-radius:10px;
     font-weight:bold;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#f5c518;
-    color:#111;
-}
-
-/* ====== RESPONSIVE ====== */
-@media (max-width:600px){
-    .news-card{
-        padding:18px;
-    }
-
-    .news-card h3{
-        font-size:20px;
-    }
+    margin-top:20px;
 }
 </style>
 
-<div class="news-card">
+<div class="course">
+    <img src="imagenes/playphrase.jpg" alt="PlayPhrase.me">
 
-   
-
-    <h3 id="PlayPhraseme">🎬 PlayPhrase.me</h3>
+    <h3 id="PlayPhraseme" >🎬 PlayPhrase.me</h3>
 
     <p>
-        Aprende inglés con escenas reales de películas y series. Solo escribe una palabra o frase y PlayPhrase.me te mostrará clips donde actores nativos la utilizan en conversaciones auténticas.
+        Aprende inglés con escenas reales de películas y series. Solo escribe
+        una palabra o frase y PlayPhrase te mostrará decenas de clips donde
+        actores nativos la utilizan en conversaciones auténticas.
     </p>
 
     <p>
-        Esta plataforma permite escuchar expresiones reales en contexto, ayudando a mejorar la pronunciación, la comprensión auditiva y el aprendizaje de vocabulario de forma práctica y entretenida.
+        Es una forma entretenida de mejorar pronunciación, comprensión auditiva,
+        vocabulario y expresiones cotidianas mientras disfrutas de fragmentos
+        de cine y televisión.
     </p>
 
-    <div class="destacado">
-        ⭐ Ideal para estudiantes de inglés que desean aprender cómo se usan realmente las palabras y expresiones en películas y series.
-    </div>
-
-    <ul>
-        <li>🎥 Frases reales de películas y series.</li>
-        <li>🗣️ Mejora la pronunciación y la comprensión auditiva.</li>
-        <li>📚 Aprende vocabulario en contexto.</li>
-        <li>🌎 Escucha inglés utilizado por hablantes nativos.</li>
-        <li>⚡ Funciona directamente desde el navegador.</li>
-    </ul>
-
-    <div class="destacado">
-        ℹ️ <strong>Información:</strong> PlayPhrase ofrece funciones gratuitas para explorar frases y clips de películas. Algunas características adicionales o un uso más amplio de la plataforma pueden requerir una suscripción de pago. Consulta los detalles y planes disponibles directamente en su sitio oficial.
-    </div>
+    <p>
+        ✅ Frases reales de películas y series<br>
+        ✅ Mejora la pronunciación y escucha<br>
+        ✅ Aprende vocabulario en contexto<br>
+        ✅ Ideal para estudiantes de inglés<br>
+        ✅ Uso rápido desde navegador
+    </p>
 
     <a href="https://playphrase.me/" target="_blank" class="btn">
-        🎬 Visitar PlayPhrase.me
+        🎥 Visitar PlayPhrase.me
     </a>
 
 </div>
 
 
-☆-- VOLVER --☆
-<nav>
-  <a href="../acceso-libre.html#ia">🧠 IA</a>
-  <a href="../acceso-libre.html#educacion">🎓 Educación</a>
-  <a href="../acceso-libre.html#idiomas">🗣️ Idiomas</a>
-  <a href="../acceso-libre.html#programacion">💻 Programación</a>
-  <a href="../acceso-libre.html#video">🎬 Video</a>
-  <a href="../acceso-libre.html#musica">🎵 Música</a>
-  <a href="../acceso-libre.html#marketing">📢 Marketing</a>
-  <a href="../acceso-libre.html#utilidades">🧰 Utilidades</a>
-  <a href="../acceso-libre.html#noticias">🚀 Noticias</a>
-</nav>
-
-
+<a href="#menu-inicio">☆ 🔝ASCENDER🔝 ☆</a>
 <div>
 
 
 </header>
 
-<a href="../index.html">| Inicio /</a><a href="../acceso-libre.html" style="color:red;">/ Acceso Libre /</a><a href="../acceso-exclusivo.html">/ Acceso Exclusivo /</a><a href="../360°.html">/360°|</a>
     <!-- Videos Destacados en la cabecera -->
     <div class="video-container">
         <iframe src="https://www.youtube-nocookie.com/embed/hTddAWDpGXg" title="Contenido audiovisual" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
