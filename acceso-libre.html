@@ -326,6 +326,21 @@ fetch("/menu-libre.html")
 
 
 ---
+<section id="ia">
+
+<h2>Inteligencia Artificial</h2>
+
+<div id="menu-ia"></div>
+
+<script>
+fetch("/menu-ia.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-ia").innerHTML = data;
+  });
+</script>
+
+</section>
 
 <!-- IA -->
 <section id="ia">
