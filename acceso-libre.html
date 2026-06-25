@@ -465,18 +465,17 @@ fetch("/menu-video.html")
 <!-- MUSICA -->
 <section id="musica">
 <h2>🎵 Música / Audio</h2>
-<ul>
-<li> <a href="#SunoAI">Suno AI</li>
+<div id="menu-audio"></div>
 
-<li> <a href="#MusicGPT">MusicGPT</li>
+<script>
+fetch("/menu-audio.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-audio").innerHTML = data;
+  });
+</script>
 
-<li><a href="seccion-libre/shazam.html">Shazam</a> </li>
-
-
-</ul>
 </section>
-
----
 
 <!-- MARKETING -->
 <section id="marketing">
