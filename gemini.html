@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poder Digital | Directorio de Recursos e Información</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #f4f4f4;
+            --text: #333;
+            --accent: #ff7a00;
+            --card-bg: #ffffff;
+            --border: #ddd;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0; 
+            line-height: 1.6;
+        }
+
+        .info-bar {
+            background: #e9ecef;
+            padding: 10px 20px;
+            font-size: 11px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            color: #665;
+        }
+
+        header {
+            background: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        h1 { margin: 0; font-size: 1.8rem; color: var(--accent); letter-spacing: 1px; }
+
+        .search-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .search-input {
+            width: 100%; 
+            padding: 15px; 
+            border: 2px solid var(--accent); 
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .main-container { max-width: 1200px; margin: auto; padding: 20px; }
+
+        /* Misiones y Propósitos */
+        .ecosistema-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .ecosistema-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        .ecosistema-card h2 { margin-top: 0; font-size: 1.2rem; color: #111; }
+
+        /* Secciones de Prensa / Editorial */
+        .editorial {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        /* ACORDIONES Y CATEGORÍAS */
+        .category {
+            background: white;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background: #f8f9fa;
+            transition: background 0.3s;
+        }
+        .category-header:hover { background: #f1f3f5; }
+
+        .gallery {
+            display: none;
+            padding: 20px;
+            background: #fff;
+            border-top: 1px solid var(--border);
+        }
+
+        /* GRID DE CURSOS */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .course {
+            background: #fafafa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .course img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .course h3 { margin: 10px 0; font-size: 1.1rem; color: #000; }
+
+        /* BOTONES */
+        .botones {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-buy {
+            background: var(--accent);
+            padding: 12px;  
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            font-size: 13px;
+            transition: background 0.2s;
+        }
+        .btn-buy:hover { background: #e06b00; }
+
+        .btn-qr {
+            background: #e9ecef;
+            color: #333;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* OVERLAY QR */
+        #qr-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #qr-overlay img { width: 80vw; max-width: 350px; border-radius: 20px; }
+        .cerrar { position: absolute; top: 25px; right: 25px; font-size: 35px; color: white; font-weight: bold; cursor: pointer; }
+
+        /* NOTICIAS ESTILO PRENSA */
+        .noticia-prensa {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            margin: 40px auto;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .noticia-header { padding: 30px; border-bottom: 1px solid #eaeaea; }
+        .noticia-body { padding: 30px; }
+
+        /* VIDEOS Y EMEDIDOS */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #f2f2f2;
+            margin: 20px 0;
+        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        /* WHATSAPP */
+        .whatsapp-bubble {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 34px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+
+        footer { text-align: center; padding: 40px 20px; background: #000; color: #fff; font-size: 0.85rem; margin-top: 40px; }
+        footer a { color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="info-bar">
+    <i class="fas fa-university"></i> PODER DIGITAL | Directorio Informativo de Soporte y Recursos Digitales
+</div>
+
+<nav id="menu-inicio"></nav>
+
+<script>
+fetch("/menu-inicio.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-inicio").innerHTML = data;
+  });
+</script>
+
+<header>
+   
+
+
+
+ <h1>PODER DIGITAL</h1>
+ 
+ 
+
+<div id="menu-libre"></div>
+
+<script>
+fetch("/menu-libre.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-libre").innerHTML = data;
+  });
+</script>
+
+<section style="max-width:900px;margin:30px auto;padding:30px;background:linear-gradient(135deg,#ffffff,#f5faff);border-radius:20px;box-shadow:0 8px 25px rgba(0,0,0,0.08);font-family:Arial,sans-serif;line-height:1.7;color:#333;">
+
+ 
+<div style="max-width:900px;margin:40px auto;padding:20px;font-family:Arial;background:linear-gradient(135deg,#0b1220,#1e293b);color:white;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,0.4);">
+
+    <!-- HEADER -->
+    <div style="text-align:center;">
+        <h1 id="GoogleGemini" style="margin:0;color:#38bdf8;font-size:32px;">
+            🧠 Google Gemini
+        </h1>
+        <p style="color:#cbd5e1;margin-top:8px;">
+            Asistente de inteligencia artificial de Google
+        </p>
+    </div>
+
+    <!-- WARNING -->
+    <div style="margin-top:20px;background:linear-gradient(90deg,#ff4d4d,#ffb300);padding:15px;border-radius:12px;font-weight:bold;">
+        ⚠️ IMPORTANTE:  
+        Este servicio es un asistente de inteligencia artificial.  
+        No es una tienda de aplicaciones ni instala software por sí mismo.  
+        Las descargas siempre deben realizarse desde fuentes oficiales como Google Play Store.
+    </div>
+
+    <!-- MAIN INFO -->
+    <div style="margin-top:20px;background:rgba(255,255,255,0.05);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.1);">
+
+        <p style="color:#cbd5e1;line-height:1.6;">
+            Permite conversar con inteligencia artificial avanzada capaz de generar texto, resolver dudas, explicar conceptos, ayudar en tareas de estudio, programación y creación de contenido digital.
+        </p>
+
+        <p style="color:#cbd5e1;line-height:1.6;">
+            También puede apoyar en la creación de código y estructuras para páginas web, sistemas y aplicaciones, generando prototipos y ejemplos funcionales que sirven como base para desarrollos reales.
+        </p>
+
+        <p style="color:#cbd5e1;line-height:1.6;">
+            ⚡ <strong>Noticia importante:</strong> este tipo de inteligencia artificial puede ayudar a crear aplicaciones completas mediante código, como calculadoras, herramientas web, convertidores de archivos y sistemas básicos, los cuales luego pueden ser desarrollados y publicados por el usuario.
+        </p>
+
+        <p style="color:#cbd5e1;line-height:1.6;">
+            El contenido generado debe ser revisado antes de usarse en proyectos reales o comerciales.
+        </p>
+
+        <!-- PRECAUTIONS -->
+        <div style="margin-top:15px;padding:15px;border-left:4px solid #facc15;background:rgba(250,204,21,0.08);border-radius:10px;">
+            <strong style="color:#facc15;">⚠️ Precauciones de uso</strong>
+            <p style="color:#e2e8f0;margin-top:8px;line-height:1.5;">
+                • No compartir datos personales sensibles<br>
+                • Verificar información importante antes de usarla<br>
+                • No depender en temas médicos, legales o financieros<br>
+                • Usarlo como apoyo creativo y educativo
+            </p>
+        </div>
+
+        <!-- BUTTONS -->
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
+
+            <a href="https://gemini.google.com/"
+               target="_blank"
+               style="background:#3b82f6;color:white;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:bold;">
+                🌐 Abrir Gemini Web
+            </a>
+
+            <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard"
+               target="_blank"
+               style="background:#22c55e;color:white;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:bold;">
+                📲 Descargar en Play Store
+            </a>
+
+
+        </div>
+
+        <!-- FOOT NOTE -->
+        <p style="font-size:12px;color:#94a3b8;margin-top:15px;">
+            ✔ Servicio oficial de Google. Disponibilidad puede variar según región y dispositivo.
+        </p>
+
+
+    </div>
+</div>
+
+
+
+<a href="#menu-inicio">☆ 🔝ASCENDER🔝 ☆</a>
+<div>
+
+
+</header>
+
+    <!-- Videos Destacados en la cabecera -->
+    <div class="video-container">
+        <iframe src="https://www.youtube-nocookie.com/embed/hTddAWDpGXg" title="Contenido audiovisual" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+
+
+
+<div style="margin-top:15px;padding:10px;background:#f5f5f5;border-radius:6px;">
+    📺 Contenido externo integrado desde YouTube con fines informativos.
+</div>
+
+
+   
+    <!-- Videos Adicionales -->
+    <div class="video-container">
+        <iframe src="https://www.youtube-nocookie.com/embed/3wkuqRFXNvI" title="Contenido audiovisual" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+
+
+</div> <!-- FIN MAIN CONTAINER -->
+
+<!-- QR OVERLAY LAYER -->
+<div id="qr-overlay">
+    <span class="cerrar" onclick="cerrarQR()">✕</span>
+    <img id="qr-overlay-img" src="" alt="Código QR">
+</div>
+
+<!-- BOTÓN GENERAL WHATSAPP -->
+<a class="whatsapp-bubble" href="https://wa.me/56979523923" target="_blank">💬</a>
+
+<footer>
+  <p><strong>soportepoderdigital.cl | Directorio de Información</strong></p>
+    <p>Este sitio es un directorio informativo independiente. Los enlaces redirigen a plataformas externas cuya utilización y registro es de total responsabilidad del usuario.</p>
+    <p>© 2026 Soporte Poder Digital. Todos los derechos reservados. | <a href="../privacidad.html">Política de Privacidad</a> | <a href="../terminos.html">Términos y Condiciones</a></p>
+</footer>
+
+<script>
+    // Buscador funcional integrado
+    function filtrarContenido() {
+        let input = document.getElementById('buscador').value.toLowerCase();
+        let cards = document.getElementsByClassName('item-card');
+
+        for (let i = 0; i < cards.length; i++) {
+            let title = cards[i].querySelector('.item-title').innerText.toLowerCase();
+            let desc = cards[i].querySelector('.item-desc') ? cards[i].querySelector('.item-desc').innerText.toLowerCase() : "";
+            
+            if (title.includes(input) || desc.includes(input)) {
+                cards[i].style.display = "block";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+
+    // Controlador de Acordeón Único
+    function toggleGallery(id){
+        let g = document.getElementById(id);
+        g.style.display = (g.style.display === "block") ? "none" : "block";
+    }
+
+    // Funciones del visualizador de códigos QR
+    function mostrarQR(ruta){
+        document.getElementById("qr-overlay-img").src = ruta;
+        document.getElementById("qr-overlay").style.display = "flex";
+    }
+
+    function cerrarQR(){
+        document.getElementById("qr-overlay").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
