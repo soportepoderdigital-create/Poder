@@ -489,7 +489,21 @@ fetch("/menu-audio.html")
 </section>
 
 ---
+<section id="utilidades">
 
+<h2>-
+🧰 Utilidades </h2>
+
+<div id="menu-utilidades"></div>
+
+<script>
+fetch("/menu-utilidades.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-utilidades").innerHTML = data;
+  });
+</script>
+</section>
 <!-- UTILIDADES -->
 <section id="utilidades">
 <h2>🧰 Utilidades</h2>
