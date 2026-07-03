@@ -252,17 +252,17 @@
  <h1>PODER DIGITAL</h1>
  
 
-<nav>
-  <a href="../acceso-libre.html#ia">🧠 IA</a>
-  <a href="../acceso-libre.html#educacion">🎓 Educación</a>
-  <a href="../acceso-libre.html#idiomas">🗣️ Idiomas</a>
-  <a href="../acceso-libre.html#programacion">💻 Programación</a>
-  <a href="../acceso-libre.html#video">🎬 Video</a>
-  <a href="../acceso-libre.html#musica">🎵 Música</a>
-  <a href="../acceso-libre.html#marketing">📢 Marketing</a>
-  <a href="../acceso-libre.html#utilidades">🧰 Utilidades</a>
-  <a href="../acceso-libre.html#noticias">🚀 Noticias</a>
-</nav>
+
+
+<div id="menu-libre"></div>
+
+<script>
+fetch("/menu-libre.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-libre").innerHTML = data;
+  });
+</script>
 
 
 
