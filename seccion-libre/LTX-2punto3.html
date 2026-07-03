@@ -241,9 +241,15 @@
     <i class="fas fa-university"></i> PODER DIGITAL | Directorio Informativo de Soporte y Recursos Digitales
 </div>
 
+<nav id="menu-inicio"></nav>
 
-<a href="../index.html">| Inicio /</a><a href="../acceso-libre.html" style="color:red;">/ Acceso Libre /</a><a href="../acceso-exclusivo.html">/ Acceso Exclusivo /</a><a href="../360°.html">/360°|</a>
-
+<script>
+fetch("/menu-inicio.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-inicio").innerHTML = data;
+  });
+</script>
 <header>
    
 
