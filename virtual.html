@@ -4,11 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Universo Virtual</title>
+<title>Universo Virtual | SoportePoderDigital.cl</title>
 
+<meta name="description" content="Explora el Universo Virtual de SoportePoderDigital.cl con páginas 360°, experiencias inmersivas, realidad virtual, juegos, simuladores, inteligencia artificial y las últimas novedades tecnológicas.">
+
+<meta name="theme-color" content="#00eaff">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+/* ===============================
+   UNIVERSO VIRTUAL
+   SOPORTEPODERDIGITAL.CL
+================================== */
 
 *{
 margin:0;
@@ -16,27 +27,31 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 
 font-family:'Orbitron',sans-serif;
 
-background:
-linear-gradient(135deg,#03031a,#060b28,#120033,#031d3d,#021d24);
+background:linear-gradient(135deg,#020311,#05142d,#140035,#041f45,#021d22);
 
-background-size:400% 400%;
+background-size:500% 500%;
 
-animation:fondo 20s infinite alternate;
+animation:bg 18s ease infinite;
 
-color:white;
+color:#fff;
 
 overflow-x:hidden;
 
 }
 
-@keyframes fondo{
+@keyframes bg{
 
-0%{background-position:left;}
-100%{background-position:right;}
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 
 }
 
@@ -46,33 +61,30 @@ content:"";
 
 position:fixed;
 
-width:100%;
-height:100%;
+inset:0;
 
-background:
-radial-gradient(circle,#00ffff22 1px,transparent 1px);
+background-image:
+
+radial-gradient(#00ffff44 1px,transparent 1px);
 
 background-size:45px 45px;
 
-opacity:.5;
+animation:grid 25s linear infinite;
 
 pointer-events:none;
 
-animation:mover 30s linear infinite;
-
 }
 
-@keyframes mover{
+@keyframes grid{
 
 from{transform:translateY(0);}
-to{transform:translateY(80px);}
+to{transform:translateY(90px);}
 
 }
 
 .container{
 
-width:95%;
-max-width:1400px;
+width:min(1400px,95%);
 margin:auto;
 padding:40px 20px;
 
@@ -80,47 +92,56 @@ padding:40px 20px;
 
 .hero{
 
+padding:70px 30px;
+
 text-align:center;
 
-padding:50px 20px;
-
-margin-bottom:40px;
-
-border:1px solid #00ffff55;
-
-border-radius:25px;
+border-radius:30px;
 
 background:rgba(255,255,255,.05);
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(18px);
 
-box-shadow:
-0 0 40px cyan,
-0 0 80px #ff00ff44;
+border:1px solid rgba(0,255,255,.35);
+
+box-shadow:0 0 40px cyan,
+0 0 80px rgba(255,0,255,.3);
 
 }
 
 .hero h1{
 
-font-size:55px;
+font-size:clamp(2.4rem,6vw,4rem);
 
 color:#00ffff;
 
-text-shadow:
-0 0 15px cyan,
-0 0 30px cyan;
+text-shadow:0 0 20px cyan;
 
 margin-bottom:20px;
 
 }
 
+.hero h2{
+
+font-size:1.2rem;
+
+color:#ff6fff;
+
+margin-bottom:25px;
+
+}
+
 .hero p{
 
-font-size:18px;
+max-width:900px;
 
-color:#ddd;
+margin:auto;
 
-line-height:1.8;
+line-height:1.9;
+
+color:#dddddd;
+
+font-size:1rem;
 
 }
 
@@ -132,23 +153,19 @@ grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 
 gap:18px;
 
-margin:50px 0;
+margin:55px 0;
 
 }
 
-.categoria{
+.cat{
 
-padding:20px;
+padding:18px;
 
 border-radius:18px;
 
 text-align:center;
 
-font-weight:bold;
-
 background:rgba(255,255,255,.05);
-
-backdrop-filter:blur(10px);
 
 border:1px solid #00ffff55;
 
@@ -158,13 +175,12 @@ cursor:pointer;
 
 }
 
-.categoria:hover{
+.cat:hover{
 
-transform:translateY(-8px) scale(1.05);
+transform:translateY(-8px);
 
-box-shadow:
-0 0 25px cyan,
-0 0 35px magenta;
+box-shadow:0 0 25px cyan,
+0 0 45px magenta;
 
 }
 
@@ -172,9 +188,9 @@ box-shadow:
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
 
-gap:30px;
+gap:28px;
 
 }
 
@@ -182,41 +198,36 @@ gap:30px;
 
 background:rgba(255,255,255,.05);
 
-border-radius:25px;
+border-radius:24px;
 
 overflow:hidden;
 
-border:1px solid #00ffff55;
+border:1px solid rgba(0,255,255,.3);
 
-backdrop-filter:blur(15px);
+transition:.4s;
 
-transition:.5s;
-
-position:relative;
+backdrop-filter:blur(12px);
 
 }
 
 .card:hover{
 
-transform:translateY(-12px);
+transform:translateY(-10px);
 
-box-shadow:
-0 0 25px cyan,
-0 0 60px magenta;
+box-shadow:0 0 30px cyan,
+0 0 50px magenta;
 
 }
 
 .card img{
 
 width:100%;
-
 height:220px;
-
 object-fit:cover;
 
 }
 
-.card h2{
+.card h3{
 
 padding:18px;
 
@@ -228,47 +239,44 @@ color:#00ffff;
 
 padding:0 18px 20px;
 
-line-height:1.7;
+line-height:1.8;
 
 color:#ddd;
 
 }
 
-.boton{
+.btn{
 
 display:inline-block;
 
-margin:0 18px 22px;
+margin:0 18px 25px;
 
-padding:12px 28px;
+padding:12px 30px;
 
 border-radius:50px;
 
-background:linear-gradient(90deg,#00ffff,#ff00ff);
+text-decoration:none;
 
 color:white;
 
-text-decoration:none;
-
 font-weight:bold;
 
-transition:.4s;
+background:linear-gradient(90deg,#00ffff,#ff00ff);
+
+transition:.3s;
 
 }
 
-.boton:hover{
+.btn:hover{
 
 transform:scale(1.08);
 
-box-shadow:
-0 0 20px cyan,
-0 0 40px magenta;
+box-shadow:0 0 25px cyan,
+0 0 45px magenta;
 
 }
 
 .info{
-
-margin-top:60px;
 
 display:grid;
 
@@ -276,27 +284,35 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 
 gap:25px;
 
+margin-top:60px;
+
 }
 
-.info div{
-
-background:rgba(255,255,255,.05);
+.box{
 
 padding:30px;
 
 border-radius:20px;
 
-border:1px solid #00ffff44;
+background:rgba(255,255,255,.05);
 
-text-align:center;
+border:1px solid #00ffff55;
 
 }
 
-.info h3{
+.box h4{
+
+color:#00ffff;
 
 margin-bottom:15px;
 
-color:#00ffff;
+}
+
+.box p{
+
+line-height:1.8;
+
+color:#ddd;
 
 }
 
@@ -304,29 +320,15 @@ footer{
 
 margin-top:70px;
 
+padding:35px;
+
 text-align:center;
-
-padding:30px;
-
-font-size:14px;
 
 color:#aaa;
 
-}
+font-size:.9rem;
 
-@media(max-width:700px){
-
-.hero h1{
-
-font-size:34px;
-
-}
-
-.hero p{
-
-font-size:15px;
-
-}
+border-top:1px solid rgba(255,255,255,.1);
 
 }
 
@@ -337,179 +339,165 @@ font-size:15px;
 
 <div class="container">
 
-<div class="hero">
+<section class="hero">
 
 <h1>🌌 UNIVERSO VIRTUAL</h1>
 
+<h2>Exclusivo de SoportePoderDigital.cl</h2>
+
 <p>
 
-Explora una nueva dimensión digital.
+Bienvenido a la nueva sección de <strong>SoportePoderDigital.cl</strong>, donde encontrarás las experiencias digitales más innovadoras del momento.
 
-Encuentra experiencias inmersivas, páginas 360°, recorridos virtuales, videojuegos, inteligencia artificial, simuladores, realidad aumentada, realidad virtual y mucho más.
+Aquí reuniremos páginas inmersivas, recorridos 360°, juegos interactivos, realidad virtual, inteligencia artificial, simuladores, metaversos, aplicaciones experimentales y mucho más. Este espacio crecerá continuamente incorporando nuevas plataformas y tecnologías para que siempre descubras algo diferente.
 
 </p>
 
-</div>
+</section>
 
-<div class="categorias">
+<section class="categorias">
 
-<div class="categoria">🌍 Páginas 360°</div>
+<div class="cat">🌍 Páginas 360°</div>
 
-<div class="categoria">🥽 Realidad Virtual</div>
+<div class="cat">🥽 Realidad Virtual</div>
 
-<div class="categoria">🚀 Experiencias Inmersivas</div>
+<div class="cat">🚀 Experiencias Inmersivas</div>
 
-<div class="categoria">🎮 Juegos</div>
+<div class="cat">🎮 Juegos</div>
 
-<div class="categoria">🧠 IA Interactiva</div>
+<div class="cat">🤖 Inteligencia Artificial</div>
 
-<div class="categoria">✨ Novedades</div>
+<div class="cat">🌐 Metaverso</div>
 
-<div class="categoria">🌐 Metaverso</div>
+<div class="cat">🛰️ Simuladores</div>
 
-<div class="categoria">🔮 Próximamente</div>
+<div class="cat">✨ Próximas Novedades</div>
 
-</div>
+</section>
 
-<div class="grid">
+<section class="grid">
 
 <div class="card">
 
-<img src="https://picsum.photos/600/400?1">
+<img src="https://picsum.photos/700/450?1">
 
-<h2>Experiencia 360°</h2>
-
-<p>
-
-Ejemplo de una página completamente inmersiva donde podrás mirar alrededor, descubrir lugares y vivir una experiencia única.
-
-</p>
-
-<a href="#" class="boton">
-
-Entrar
-
-</a>
-
-</div>
-
-<div class="card">
-
-<img src="https://picsum.photos/600/400?2">
-
-<h2>Juego Virtual</h2>
+<h3>Experiencia 360°</h3>
 
 <p>
 
-Ejemplo de un juego interactivo con gráficos sorprendentes y una experiencia futurista.
+Espacio reservado para una plataforma de recorridos virtuales interactivos.
 
 </p>
 
-<a href="#" class="boton">
-
-Jugar
-
-</a>
+<a class="btn" href="#">Explorar</a>
 
 </div>
 
 <div class="card">
 
-<img src="https://picsum.photos/600/400?3">
+<img src="https://picsum.photos/700/450?2">
 
-<h2>Realidad Virtual</h2>
+<h3>Juego Inmersivo</h3>
 
 <p>
 
-Explora una plataforma compatible con dispositivos VR para disfrutar una experiencia inmersiva.
+Zona destinada a un videojuego o experiencia interactiva.
 
 </p>
 
-<a href="#" class="boton">
-
-Explorar
-
-</a>
+<a class="btn" href="#">Ingresar</a>
 
 </div>
 
 <div class="card">
 
-<img src="https://picsum.photos/600/400?4">
+<img src="https://picsum.photos/700/450?3">
 
-<h2>Innovación Digital</h2>
+<h3>Realidad Virtual</h3>
 
 <p>
 
-Las tecnologías más recientes del mundo virtual reunidas en un solo lugar.
+Comparte aquí una plataforma compatible con dispositivos VR.
 
 </p>
 
-<a href="#" class="boton">
-
-Ver más
-
-</a>
+<a class="btn" href="#">Abrir</a>
 
 </div>
 
-</div>
+<div class="card">
 
-<div class="info">
+<img src="https://picsum.photos/700/450?4">
 
-<div>
-
-<h3>⚡ Actualizaciones</h3>
+<h3>Innovación Digital</h3>
 
 <p>
 
-Nuevas plataformas inmersivas cada semana.
+Sección para las novedades tecnológicas más recientes.
 
 </p>
 
-</div>
-
-<div>
-
-<h3>🌎 Compatibilidad</h3>
-
-<p>
-
-Computador, Android, iPhone, tabletas y visores VR.
-
-</p>
+<a class="btn" href="#">Descubrir</a>
 
 </div>
 
-<div>
+</section>
 
-<h3>💎 Selección</h3>
+<section class="info">
+
+<div class="box">
+
+<h4>🚀 Actualizaciones Permanentes</h4>
 
 <p>
 
-Solo experiencias innovadoras y de alta calidad.
+Esta sección incorporará continuamente nuevas plataformas y experiencias virtuales.
 
 </p>
 
 </div>
 
-<div>
+<div class="box">
 
-<h3>🚀 Futuro</h3>
+<h4>📱 Compatible</h4>
 
 <p>
 
-La tecnología evoluciona constantemente y esta sección crecerá con nuevas experiencias.
+Computadores, tablets, teléfonos inteligentes y dispositivos de realidad virtual.
 
 </p>
 
 </div>
 
+<div class="box">
+
+<h4>💎 Selección Especial</h4>
+
+<p>
+
+Solo se publicarán proyectos interesantes, innovadores y de utilidad para la comunidad.
+
+</p>
+
 </div>
+
+<div class="box">
+
+<h4>🌌 El Futuro es Hoy</h4>
+
+<p>
+
+Explora el siguiente nivel de Internet junto a SoportePoderDigital.cl.
+
+</p>
+
+</div>
+
+</section>
 
 <footer>
 
-✨ Universo Virtual • Explora el futuro desde cualquier dispositivo.
+© SoportePoderDigital.cl • Universo Virtual • Explorando las tecnologías del mañana.
 
 </footer>
 
