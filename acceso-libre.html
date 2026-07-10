@@ -383,7 +383,25 @@ fetch("/menu-ia.html")
 
 
 
-<!-- EDUCACION -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section id="educacion">
 <h2>🎓 Educación / Cursos</h2>
 <ul>
@@ -417,13 +435,26 @@ fetch("/menu-ia.html")
 ---
 
 <!-- PROGRAMACION -->
-<section id="programacion">
-<h2>💻 Programación</h2>
-<ul>
-<li> <a href="#Exercism">Exercism</a> </li>
-</ul>
-</section>
 
+
+
+
+---
+<section id="programacion">
+
+<h2>Programacion</h2>
+
+<div id="menu-programacion"></div>
+
+<script>
+fetch("/menu-programacion.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-programacion").innerHTML = data;
+  });
+</script>
+
+</section>
 
 
 <section id="ciberseguridad">
