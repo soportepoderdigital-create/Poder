@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poder Digital | Directorio de Recursos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #f7f7f7;
+            --text: #333;
+            --accent: #ff7a00;
+            --dark: #000;
+            --card-bg: #ffffff;
+            --border: #ddd;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0; 
+            line-height: 1.6;
+        }
+
+        /* Utilidades */
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        header { background: var(--dark); color: white; padding: 50px 20px; text-align: center; border-bottom: 4px solid var(--accent); }
+        h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
+        
+        .info-bar { background: #e9ecef; padding: 10px; font-size: 12px; text-align: center; border-bottom: 1px solid var(--border); color: #665; }
+
+        /* Buscador */
+        .search-container { max-width: 600px; margin: 30px auto; padding: 0 20px; }
+        .search-input { width: 100%; padding: 15px; border: 2px solid var(--accent); border-radius: 30px; font-size: 16px; outline: none; }
+
+        /* Misión/Visión Cards */
+        .ecosistema-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .ecosistema-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--accent); }
+
+        /* Acordeón de Categorías */
+        .category { background: white; margin-bottom: 15px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+        .category-header { background: #fff; padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 1.1rem; }
+        .category-header:hover { background: #f9f9f9; }
+        .gallery { display: none; padding: 20px; background: #fafafa; border-top: 1px solid #eee; }
+        .gallery.active { display: block; }
+
+        /* Grid de Cursos */
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+        .course-card { background: white; border: 1px solid #eee; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s; }
+        .course-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .course-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+        .course-content { padding: 20px; flex-grow: 1; }
+        .course-title { font-size: 1.1rem; margin: 0 0 10px 0; color: var(--dark); }
+        .course-desc { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
+
+        /* Botones */
+        .action-area { padding: 15px; display: flex; gap: 10px; background: #fdfdfd; }
+        .btn { flex: 1; padding: 10px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: bold; font-size: 13px; border: none; cursor: pointer; }
+        .btn-main { background: var(--accent); color: white; }
+        .btn-outline { background: white; color: var(--accent); border: 1px solid var(--accent); }
+
+        /* QR Overlay */
+        #qr-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; z-index: 10000; }
+        #qr-overlay img { max-width: 300px; border-radius: 15px; background: white; padding: 10px; }
+        .close-qr { position: absolute; top: 30px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+
+        /* Floating WhatsApp */
+        .whatsapp-bubble { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 999; }
+
+        footer { background: var(--dark); color: #aaa; padding: 40px 20px; text-align: center; font-size: 0.9rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .course-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="info-bar">
+    <i class="fas fa-university"></i> PODER DIGITAL • BETA • Recursos experimentales, herramientas nuevas y plataformas en evaluación.
+</div>
+
+<header>
+    <h1>PODER DIGITAL</h1>
+    <p style="max-width: 800px; margin: 20px auto; opacity: 0.9;">
+        Explora herramientas digitales recientemente descubiertas, plataformas en desarrollo, inteligencia artificial, aplicaciones y recursos experimentales que podrían formar parte del ecosistema de Soporte Poder Digital.
+    </p>
+    
+    <div class="search-container">
+        <input type="text" id="buscador" class="search-input" placeholder="¿Qué recurso buscas hoy?" onkeyup="filtrar()">
+    </div>
+</header>
+
+<div class="container">
+    
+    <!-- Misión y Visión -->
+    <div class="ecosistema-grid">
+        <div class="ecosistema-card">
+         
+
+
+
+<h3>🚀 Novedades</h3>
+
+<p>
+Descubre herramientas recién lanzadas antes de que sean ampliamente conocidas.
+</p>
+
+</div>
+
+<div class="beta-card">
+
+<h3>🧪 En evaluación</h3>
+
+<p>
+
+Probamos recursos para verificar su utilidad, estabilidad y calidad antes de incorporarlos al directorio principal.
+
+</p>
+
+</div>
+
+<div class="beta-card">
+
+<h3>⚡ Laboratorio Digital</h3>
+
+<p>
+
+Explora inteligencia artificial, automatización, productividad y tecnologías experimentales.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="category">
+
+<div class="category-header">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <h3>🌱 Misión</h3>
+            <p>Facilitar el acceso a recursos que permitan a las personas crear su propia parte del ecosistema digital.</p>
+        </div>
+        <div class="ecosistema-card">
+            <h3>🧭 Propósito</h3>
+            <p>Punto de entrada confiable para conectar herramientas con las distintas etapas de un proyecto online.</p>
+        </div>
+        <div class="ecosistema-card">
+            <h3>✨ Visión</h3>
+            <p>Impulsar ecosistemas personales alineados con la normativa y el crecimiento consciente.</p>
+        </div>
+    </div>
+
+    <!-- SECCIÓN DE CATEGORÍAS -->
+    
+    <!-- Categoría 1 -->
+    <div class="category">
+        <div class="category-header" onclick="toggleCat('cat1')">
+            <span><i class="fas fa-bullhorn"></i> MARKETING DIGITAL & AFILIADOS</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div id="cat1" class="gallery active">
+            <div class="course-grid">
+                
+                <!-- Item -->
+                <div class="course-card">
+                    <img src="imagenes/Emprende 2025 A0022.JPG" class="course-img" alt="Pack Emprendedor">
+                    <div class="course-content">
+                        <h3 class="course-title">Pack Emprendedor Digital</h3>
+                        <p class="course-desc">Material orientado a explicar conceptos básicos del emprendimiento online y estructuras generales de proyectos.</p>
+                    </div>
+                    <div class="action-area">
+                        <a href="https://go.hotmart.com/Y103166567H" target="_blank" class="btn btn-main">EXPLORAR</a>
+                        <button class="btn btn-outline" onclick="openQR('imagenes/qrcode emprender 2025.png')">QR</button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="course-card">
+                    <img src="imagenes/Marketing de Afiliados Tu Pasaporte a Ganancias.jpg" class="course-img">
+                    <div class="course-content">
+                        <h3 class="course-title">Marketing de Afiliados</h3>
+                        <p class="course-desc">Recurso educativo enfocado en el modelo de afiliación y principios de selección de productos.</p>
+                    </div>
+                    <div class="action-area">
+                        <a href="https://go.hotmart.com/V103169546A?dp=1" target="_blank" class="btn btn-main">ACCEDER</a>
+                        <button class="btn btn-outline" onclick="openQR('imagenes/qrcode Marketing de Afiliados Tu Pasaporte a Ganancias.png')">QR</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Categoría 2 -->
+    <div class="category">
+        <div class="category-header" onclick="toggleCat('cat2')">
+            <span><i class="fas fa-magic"></i> DISEÑO & CONTENIDO VISUAL</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div id="cat2" class="gallery">
+            <div class="course-grid">
+                <div class="course-card">
+                    <img src="imagenes/3000 Videos Faceless Aesthetic para Reels Bono de videos dopamina PLR & MRR.jpg" class="course-img">
+                    <div class="course-content">
+                        <h3 class="course-title">3000+ Videos Faceless</h3>
+                        <p class="course-desc">Material audiovisual para Reels y TikTok bajo licencias PLR y MRR.</p>
+                    </div>
+                    <div class="action-area">
+                        <a href="https://go.hotmart.com/L103158907X" target="_blank" class="btn btn-main">VER MÁS</a>
+                        <button class="btn btn-outline" onclick="openQR('imagenes/qrcode 3000 Videos Faceless Aesthetic.png')">QR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Actualidad Digital Chile -->
+<section class="container">
+    <div style="background: white; padding: 30px; border-radius: 15px; border-left: 5px solid #0073e6;">
+        <span style="color: #0073e6; font-weight: bold; font-size: 0.8rem;">ACTUALIDAD TRIBUTARIA · CHILE 2026</span>
+        <h2>Nueva exigencia del SII</h2>
+        <p>Desde el 2 de enero de 2026, el SII exige que quienes realicen ventas directas o intermediación comercial en marketplaces cuenten con Inicio de Actividades.</p>
+        <p><small>*Este sitio es puramente informativo y no procesa transacciones comerciales directas.</small></p>
+    </div>
+</section>
+
+<!-- QR Overlay -->
+<div id="qr-overlay">
+    <span class="close-qr" onclick="closeQR()">&times;</span>
+    <img id="qr-img" src="" alt="Código QR">
+</div>
+
+<a class="whatsapp-bubble" href="https://wa.me/5694667202" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<footer>
+    <div class="container">
+        <p><strong>soportepoderdigital.cl</strong> | Directorio de Información 2026</p>
+        <p>Soporte Poder Digital es un sitio informativo que facilita el acceso a recursos y plataformas digitales. Todos los enlaces redirigen a las plataformas oficiales de cada recurso.</p>
+        <p>
+            <a href="privacidad.html">Privacidad</a> | <a href="terminos.html">Términos</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+    // Mostrar/Ocultar Categorías
+    function toggleCat(id) {
+        const content = document.getElementById(id);
+        const allGalleries = document.querySelectorAll('.gallery');
+        
+        // Si quieres que solo una esté abierta a la vez, descomenta la siguiente línea:
+        // allGalleries.forEach(g => { if(g.id !== id) g.classList.remove('active'); });
+
+        content.classList.toggle('active');
+    }
+
+    // Buscador Real
+    function filtrar() {
+        const input = document.getElementById('buscador').value.toLowerCase();
+        const cards = document.querySelectorAll('.course-card');
+        const categories = document.querySelectorAll('.category');
+
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            if(text.includes(input)) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+        // Abrir categorías automáticamente al buscar
+        if(input.length > 0) {
+            document.querySelectorAll('.gallery').forEach(g => g.classList.add('active'));
+        }
+    }
+
+    // Funciones QR
+    function openQR(src) {
+        document.getElementById('qr-img').src = src;
+        document.getElementById('qr-overlay').style.display = 'flex';
+    }
+
+    function closeQR() {
+        document.getElementById('qr-overlay').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
