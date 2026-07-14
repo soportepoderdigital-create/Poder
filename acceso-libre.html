@@ -241,16 +241,33 @@
     <i class="fas fa-university"></i> PODER DIGITAL | Directorio Informativo de Soporte y Recursos Digitales
 </div>
 
+<nav id="menu-inicio"></nav>
 
-<a href="index.html">| Inicio </a>
-<a href="acceso-libre.html" style="color:red;">/ Acceso Libre </a>
-<a href="acceso-exclusivo.html">/ Acceso Exclusivo</a>
-<a href="virtual.html">/ Virtual</a>
+<script>
+fetch("/menu-inicio.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-inicio").innerHTML = data;
+  });
+</script>
 
 
 <header>
     <h1>PODER DIGITAL</h1>
   
+
+<div id="menu-libre"></div>
+
+<script>
+fetch("/menu-libre.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-libre").innerHTML = data;
+  });
+</script>
+
+
+
   <p><strong>Directorio informativo de recursos, cursos, materiales y herramientas digitales.</strong></p>
     <p>Soporte Poder Digital es un sitio de carácter informativo. No comercializa productos ni gestiona pagos.</p>
     <p>Los enlaces publicados redirigen a plataformas externas y se proporcionan con fines educativos, informativos, recreativos y desarrollo personal.</p>
@@ -273,15 +290,6 @@
 </body>
 </html>
 
-<div id="menu-libre"></div>
-
-<script>
-fetch("/menu-libre.html")
-  .then(r => r.text())
-  .then(data => {
-    document.getElementById("menu-libre").innerHTML = data;
-  });
-</script>
 
 
 <div style="background: linear-gradient(135deg, #e8f5e9, #f1f8e9); border-left: 5px solid #4caf50; padding: 15px; margin: 20px 0; border-radius: 10px;">
