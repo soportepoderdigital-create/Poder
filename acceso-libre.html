@@ -407,6 +407,19 @@ fetch("/menu-ia.html")
 
 
 
+<section id="educacion">
+
+<h2>🎓Educación</h2>
+
+<div id="menu-educacion"></div>
+
+<script>
+fetch("/menu-educacion.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("menu-educacion").innerHTML = data;
+  });
+</script>
 
 
 
