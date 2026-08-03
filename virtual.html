@@ -1,101 +1,560 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Virtual | Soporte Poder Digital</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PODER DIGITAL | Mundo Virtual 360°</title>
+
 <style>
-:root{
---bg:#030712;--bg2:#0b1020;--card:rgba(15,25,45,.75);
---text:#eefcff;--cyan:#00eaff;--violet:#7c5cff;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
 }
-*{box-sizing:border-box}
+
 body{
-margin:0;font-family:Arial,sans-serif;color:var(--text);
+
 background:
-radial-gradient(circle at top,#163260 0,#030712 65%),#030712;
-overflow-x:hidden}
-body:before{
-content:"";position:fixed;inset:0;pointer-events:none;
+radial-gradient(circle at top,#19345f,#050816 70%);
+
+color:white;
+min-height:100vh;
+
+}
+
+
+header{
+
+text-align:center;
+padding:45px 20px;
+
 background:
-linear-gradient(rgba(0,255,255,.04) 1px,transparent 1px),
-linear-gradient(90deg,rgba(0,255,255,.04) 1px,transparent 1px);
-background-size:40px 40px;animation:grid 12s linear infinite}
-@keyframes grid{to{transform:translateY(40px)}}
-header{text-align:center;padding:60px 20px;border-bottom:2px solid var(--cyan);
-box-shadow:0 0 35px rgba(0,234,255,.25)}
-h1{font-size:3rem;color:var(--cyan);text-shadow:0 0 20px cyan}
-p{opacity:.92}
-.search{max-width:700px;margin:25px auto}
-.search input{width:100%;padding:15px;border-radius:30px;border:2px solid var(--cyan);
-background:#091423;color:#fff}
-.wrap{max-width:1200px;margin:auto;padding:20px}
-.hero,.card,.cat{
-background:var(--card);backdrop-filter:blur(10px);
-border:1px solid rgba(0,255,255,.2);border-radius:18px;
-padding:20px;margin:20px 0;box-shadow:0 0 20px rgba(0,255,255,.08)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.item{background:#111b30;border-radius:15px;padding:18px;transition:.3s}
-.item:hover{transform:translateY(-6px);box-shadow:0 0 25px cyan}
-.btn{display:inline-block;margin-top:10px;padding:10px 16px;border-radius:8px;
-background:linear-gradient(90deg,var(--cyan),var(--violet));color:#fff;text-decoration:none}
-.cat h2{margin:0;color:#7efbff}
-footer{text-align:center;padding:40px;background:#02040a}
+linear-gradient(180deg,
+rgba(255,122,0,.25),
+transparent);
+
+}
+
+
+header h1{
+
+font-size:38px;
+color:#ff7a00;
+text-shadow:0 0 15px #ff7a00;
+
+}
+
+
+header p{
+
+margin-top:15px;
+font-size:18px;
+color:#ddd;
+
+}
+
+
+
+.container{
+
+max-width:1200px;
+margin:auto;
+padding:25px;
+
+}
+
+
+
+.intro{
+
+text-align:center;
+line-height:1.7;
+margin-bottom:35px;
+
+}
+
+
+
+.grid{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+
+}
+
+
+
+.card{
+
+background:
+rgba(255,255,255,.08);
+
+border:
+
+1px solid rgba(255,122,0,.5);
+
+border-radius:20px;
+
+padding:25px;
+
+backdrop-filter:blur(10px);
+
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+0 0 25px rgba(255,122,0,.5);
+
+}
+
+
+
+.card h2{
+
+color:#ffd700;
+
+font-size:22px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.card p{
+
+line-height:1.6;
+
+color:#eee;
+
+}
+
+
+
+.card ul{
+
+margin-top:15px;
+padding-left:20px;
+
+}
+
+
+.card li{
+
+margin-bottom:12px;
+
+}
+
+
+
+.button{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:12px 20px;
+
+border-radius:30px;
+
+background:#ff7a00;
+
+color:white;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+
+
+.button:hover{
+
+background:#ffd700;
+color:#000;
+
+}
+
+
+
+.video-box{
+
+margin-top:35px;
+
+padding:25px;
+
+text-align:center;
+
+border-radius:20px;
+
+background:
+rgba(0,0,0,.3);
+
+border:1px solid #ff7a00;
+
+}
+
+
+
+footer{
+
+text-align:center;
+
+padding:30px;
+
+margin-top:40px;
+
+background:#02040c;
+
+color:#aaa;
+
+}
+
+
+.tag{
+
+color:#00ffff;
+font-size:14px;
+
+}
+
+
+
 </style>
+
 </head>
+
+
 <body>
+
+
 <header>
-<h1>🌐 PODER DIGITAL VIRTUAL</h1>
-<p>Explora experiencias 360°, realidad virtual, IA, simuladores y recursos inmersivos.</p>
-<div class="search"><input placeholder="Buscar experiencias virtuales..."></div>
+
+<h1>🌌 MUNDO VIRTUAL 360°</h1>
+
+<p>
+Explora nuevas dimensiones digitales,
+realidad virtual, ilusiones ópticas,
+espacio, creatividad e inteligencia artificial.
+</p>
+
 </header>
 
-<div class="wrap">
 
-<section class="hero">
-<h2>🚀 Bienvenido al Portal Virtual</h2>
-<p>Esta es una plantilla futurista. Reemplaza los textos, imágenes y enlaces por tu contenido.</p>
-</section>
+
+<div class="container">
+
+
+<div class="intro">
+
+<h2>🚀 Bienvenido al futuro digital</h2>
+
+<p>
+
+Una colección de experiencias interactivas,
+herramientas creativas y tecnologías que
+permiten descubrir cómo la humanidad está
+creando nuevos mundos virtuales.
+
+</p>
+
+</div>
+
+
 
 <div class="grid">
-<div class="card"><h3>🥽 VR</h3><p>Experiencias con gafas de realidad virtual.</p></div>
-<div class="card"><h3>🌍 360°</h3><p>Recorridos inmersivos por ciudades y museos.</p></div>
-<div class="card"><h3>🧠 IA</h3><p>Herramientas inteligentes y automatización.</p></div>
-<div class="card"><h3>🛰️ 3D</h3><p>Modelos interactivos y exploración.</p></div>
+
+
+
+<div class="card">
+
+<h2>👁️ Ilusiones de Perspectiva</h2>
+
+<p>
+
+Experimentos visuales donde el cerebro
+interpreta formas, movimiento y profundidad
+de maneras sorprendentes.
+
+</p>
+
+
+<ul>
+
+<li>🧊 Cubo de Necker</li>
+
+<li>🔄 Figuras que parecen girar</li>
+
+<li>🌌 Efectos ópticos 3D</li>
+
+<li>🌀 Arte basado en percepción humana</li>
+
+</ul>
+
+
+<a class="button" href="#">
+
+Explorar ilusiones
+
+</a>
+
+
 </div>
 
-<section class="cat">
-<h2>🌎 Recorridos Virtuales</h2>
-<div class="grid">
-<div class="item"><h3>Ejemplo 1</h3><p>Descripción del recurso.</p><a class="btn" href="#">Explorar</a></div>
-<div class="item"><h3>Ejemplo 2</h3><p>Descripción del recurso.</p><a class="btn" href="#">Explorar</a></div>
-<div class="item"><h3>Ejemplo 3</h3><p>Descripción del recurso.</p><a class="btn" href="#">Explorar</a></div>
-</div>
-</section>
 
-<section class="cat">
-<h2>🎮 Simuladores</h2>
-<div class="grid">
-<div class="item"><h3>Conducción</h3><p>Ejemplo.</p></div>
-<div class="item"><h3>Vuelo</h3><p>Ejemplo.</p></div>
-<div class="item"><h3>Espacio</h3><p>Ejemplo.</p></div>
-</div>
-</section>
 
-<section class="cat">
-<h2>🤖 Inteligencia Artificial</h2>
-<div class="grid">
-<div class="item"><h3>Herramienta IA</h3><p>Cambia este texto.</p></div>
-<div class="item"><h3>Generador 3D</h3><p>Cambia este texto.</p></div>
-<div class="item"><h3>Mapa Virtual</h3><p>Cambia este texto.</p></div>
-</div>
-</section>
+
+<div class="card">
+
+<h2>🥽 Realidad Virtual & AR</h2>
+
+<p>
+
+Experiencias inmersivas usando teléfonos,
+computadores y dispositivos VR.
+
+Muchas experiencias funcionan sin lentes,
+utilizando solamente la pantalla del móvil.
+
+</p>
+
+
+<ul>
+
+<li>🌍 Mundos 360°</li>
+
+<li>🏠 Diseño de espacios 3D</li>
+
+<li>📱 Realidad aumentada</li>
+
+<li>🎮 Experiencias interactivas</li>
+
+</ul>
+
 
 </div>
+
+
+
+
+
+<div class="card">
+
+<h2>🚀 Exploración del Universo</h2>
+
+<p>
+
+Viaja virtualmente por planetas,
+estrellas y galaxias mediante simuladores
+astronómicos.
+
+</p>
+
+
+<ul>
+
+<li>⭐ Mapas del universo</li>
+
+<li>🌎 Exploradores planetarios</li>
+
+<li>🔭 Astronomía interactiva</li>
+
+<li>🪐 Simulación espacial</li>
+
+</ul>
+
+
+<p class="tag">
+
+Revisar siempre licencia:
+Gratis / Pago / Uso educativo
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>🤖 Inteligencia Artificial Creativa</h2>
+
+<p>
+
+Herramientas que ayudan a crear imágenes,
+videos, música, historias y contenido digital.
+
+</p>
+
+
+<ul>
+
+<li>🎨 Creación de imágenes IA</li>
+
+<li>🎬 Videos generados con IA</li>
+
+<li>🎵 Música digital</li>
+
+<li>🧠 Asistentes inteligentes</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>🎬 Cine y Producción Digital</h2>
+
+<p>
+
+El camino para futuros creadores:
+dirección, fotografía, edición,
+efectos visuales y narrativa audiovisual.
+
+</p>
+
+
+<ul>
+
+<li>🎥 Guiones digitales</li>
+
+<li>🎞️ Edición de video</li>
+
+<li>✨ Efectos especiales</li>
+
+<li>🌟 Nuevas formas de contar historias</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>🧪 Laboratorio Beta</h2>
+
+<p>
+
+Experimentos digitales,
+nuevas tecnologías y proyectos
+que están cambiando la forma
+de interactuar con internet.
+
+</p>
+
+
+<ul>
+
+<li>🌐 Web experimental</li>
+
+<li>🕶️ Nuevas interfaces</li>
+
+<li>📡 Tecnología emergente</li>
+
+<li>⚡ Proyectos futuros</li>
+
+</ul>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="video-box">
+
+
+<h2>🎥 Videos y Experiencias Visuales</h2>
+
+<p>
+
+Aquí se pueden agregar videos de ilusiones,
+TikTok educativos, experiencias 360°
+y demostraciones tecnológicas.
+
+</p>
+
+
+<br>
+
+
+<!-- Espacio para insertar videos -->
+
+
+<iframe
+
+width="100%"
+
+height="350"
+
+src=""
+
+style="border-radius:15px;border:0;">
+
+</iframe>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
 
 <footer>
-<p>Soporte Poder Digital • Plantilla Virtual Futurista</p>
+
+<p>
+
+© PODER DIGITAL |
+Directorio Informativo de Soporte y Recursos Digitales
+
+</p>
+
+<p>
+
+🌐 Mundo Virtual 360° - Sección Beta
+
+</p>
+
+
 </footer>
+
+
+
 </body>
 </html>
