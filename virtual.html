@@ -2,246 +2,100 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PODER DIGITAL | Sección BETA</title>
-
-<meta name="description" content="Sección BETA de PODER DIGITAL. Un laboratorio de innovación con nuevas tecnologías, inteligencia artificial, aplicaciones, videos y recursos digitales.">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Virtual | Soporte Poder Digital</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+:root{
+--bg:#030712;--bg2:#0b1020;--card:rgba(15,25,45,.75);
+--text:#eefcff;--cyan:#00eaff;--violet:#7c5cff;
 }
-
+*{box-sizing:border-box}
 body{
-background:linear-gradient(180deg,#06101d,#0d1b2a,#07111d);
-color:#fff;
-}
-
-header{
-padding:60px 20px;
-text-align:center;
-background:radial-gradient(circle,#174a87 0%,#08111d 80%);
-border-bottom:1px solid rgba(255,255,255,.1);
-}
-
-.beta{
-display:inline-block;
-padding:8px 20px;
-border:2px solid #00d9ff;
-border-radius:40px;
-color:#00d9ff;
-font-weight:bold;
-letter-spacing:3px;
-box-shadow:0 0 20px #00d9ff55;
-margin-bottom:20px;
-}
-
-h1{
-font-size:2.5rem;
-margin-bottom:15px;
-}
-
-header p{
-max-width:800px;
-margin:auto;
-line-height:1.7;
-color:#d8e4ef;
-}
-
-.container{
-width:92%;
-max-width:1200px;
-margin:auto;
-padding:40px 0;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
-}
-
-.card{
-
-background:#10253d;
-border-radius:18px;
-overflow:hidden;
-border:1px solid rgba(255,255,255,.08);
-transition:.35s;
-box-shadow:0 10px 25px rgba(0,0,0,.35);
-
-}
-
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 20px 35px rgba(0,217,255,.2);
-}
-
-iframe{
-width:100%;
-height:220px;
-border:none;
-}
-
-.content{
-padding:20px;
-}
-
-.content h2{
-margin-bottom:12px;
-color:#00d9ff;
-}
-
-.content p{
-line-height:1.6;
-color:#d2dbe5;
-margin-bottom:18px;
-}
-
-.btn{
-
-display:inline-block;
-padding:12px 22px;
-background:#00d9ff;
-color:#00131c;
-font-weight:bold;
-text-decoration:none;
-border-radius:40px;
-transition:.3s;
-
-}
-
-.btn:hover{
-background:#6fefff;
-}
-
-.info{
-margin-top:60px;
-padding:30px;
-background:#0d2136;
-border-left:5px solid #00d9ff;
-border-radius:15px;
-line-height:1.8;
-}
-
-footer{
-margin-top:60px;
-padding:25px;
-text-align:center;
-background:#050b13;
-color:#8ca0b5;
-font-size:.9rem;
-}
-
-@media(max-width:700px){
-
-header{
-padding:45px 15px;
-}
-
-h1{
-font-size:2rem;
-}
-
-iframe{
-height:200px;
-}
-
-}
-
+margin:0;font-family:Arial,sans-serif;color:var(--text);
+background:
+radial-gradient(circle at top,#163260 0,#030712 65%),#030712;
+overflow-x:hidden}
+body:before{
+content:"";position:fixed;inset:0;pointer-events:none;
+background:
+linear-gradient(rgba(0,255,255,.04) 1px,transparent 1px),
+linear-gradient(90deg,rgba(0,255,255,.04) 1px,transparent 1px);
+background-size:40px 40px;animation:grid 12s linear infinite}
+@keyframes grid{to{transform:translateY(40px)}}
+header{text-align:center;padding:60px 20px;border-bottom:2px solid var(--cyan);
+box-shadow:0 0 35px rgba(0,234,255,.25)}
+h1{font-size:3rem;color:var(--cyan);text-shadow:0 0 20px cyan}
+p{opacity:.92}
+.search{max-width:700px;margin:25px auto}
+.search input{width:100%;padding:15px;border-radius:30px;border:2px solid var(--cyan);
+background:#091423;color:#fff}
+.wrap{max-width:1200px;margin:auto;padding:20px}
+.hero,.card,.cat{
+background:var(--card);backdrop-filter:blur(10px);
+border:1px solid rgba(0,255,255,.2);border-radius:18px;
+padding:20px;margin:20px 0;box-shadow:0 0 20px rgba(0,255,255,.08)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.item{background:#111b30;border-radius:15px;padding:18px;transition:.3s}
+.item:hover{transform:translateY(-6px);box-shadow:0 0 25px cyan}
+.btn{display:inline-block;margin-top:10px;padding:10px 16px;border-radius:8px;
+background:linear-gradient(90deg,var(--cyan),var(--violet));color:#fff;text-decoration:none}
+.cat h2{margin:0;color:#7efbff}
+footer{text-align:center;padding:40px;background:#02040a}
 </style>
-
 </head>
 <body>
-
 <header>
-
-<div class="beta">🧪 SECCIÓN BETA</div>
-
-<h1>Laboratorio de Innovación</h1>
-
-<p>
-
-Bienvenido a la Sección BETA de <strong>PODER DIGITAL</strong>.
-
-Aquí se publican las novedades más recientes antes de clasificarlas en una categoría definitiva. Encontrarás inteligencia artificial, aplicaciones, recursos digitales, experimentos, videos y tecnologías que podrían formar parte del futuro del sitio.
-
-</p>
-
+<h1>🌐 PODER DIGITAL VIRTUAL</h1>
+<p>Explora experiencias 360°, realidad virtual, IA, simuladores y recursos inmersivos.</p>
+<div class="search"><input placeholder="Buscar experiencias virtuales..."></div>
 </header>
 
-<div class="container">
+<div class="wrap">
+
+<section class="hero">
+<h2>🚀 Bienvenido al Portal Virtual</h2>
+<p>Esta es una plantilla futurista. Reemplaza los textos, imágenes y enlaces por tu contenido.</p>
+</section>
 
 <div class="grid">
-
-<div class="card">
-
-<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-allowfullscreen></iframe>
-
-<div class="content">
-
-<h2>Nuevo Descubrimiento</h2>
-
-<p>
-
-Descripción breve del video. Explica qué hace esta herramienta, por qué es interesante y cómo puede ayudar a los usuarios.
-
-</p>
-
-<a href="#" class="btn">Más información</a>
-
+<div class="card"><h3>🥽 VR</h3><p>Experiencias con gafas de realidad virtual.</p></div>
+<div class="card"><h3>🌍 360°</h3><p>Recorridos inmersivos por ciudades y museos.</p></div>
+<div class="card"><h3>🧠 IA</h3><p>Herramientas inteligentes y automatización.</p></div>
+<div class="card"><h3>🛰️ 3D</h3><p>Modelos interactivos y exploración.</p></div>
 </div>
 
+<section class="cat">
+<h2>🌎 Recorridos Virtuales</h2>
+<div class="grid">
+<div class="item"><h3>Ejemplo 1</h3><p>Descripción del recurso.</p><a class="btn" href="#">Explorar</a></div>
+<div class="item"><h3>Ejemplo 2</h3><p>Descripción del recurso.</p><a class="btn" href="#">Explorar</a></div>
+<div class="item"><h3>Ejemplo 3</h3><p>Descripción del recurso.</p><a class="btn" href="#">Explorar</a></div>
 </div>
+</section>
 
-<div class="card">
-
-<iframe src="https://www.youtube.com/embed/ysz5S6PUM-U"
-allowfullscreen></iframe>
-
-<div class="content">
-
-<h2>Tecnología Experimental</h2>
-
-<p>
-
-Cada publicación de esta sección puede pertenecer a cualquier área: IA, realidad virtual, aplicaciones, diseño, programación, educación o innovación.
-
-</p>
-
-<a href="#" class="btn">Explorar</a>
-
+<section class="cat">
+<h2>🎮 Simuladores</h2>
+<div class="grid">
+<div class="item"><h3>Conducción</h3><p>Ejemplo.</p></div>
+<div class="item"><h3>Vuelo</h3><p>Ejemplo.</p></div>
+<div class="item"><h3>Espacio</h3><p>Ejemplo.</p></div>
 </div>
+</section>
 
+<section class="cat">
+<h2>🤖 Inteligencia Artificial</h2>
+<div class="grid">
+<div class="item"><h3>Herramienta IA</h3><p>Cambia este texto.</p></div>
+<div class="item"><h3>Generador 3D</h3><p>Cambia este texto.</p></div>
+<div class="item"><h3>Mapa Virtual</h3><p>Cambia este texto.</p></div>
 </div>
-
-</div>
-
-<div class="info">
-
-<h2 style="color:#00d9ff;margin-bottom:15px;">¿Qué es la Sección BETA?</h2>
-
-<p>
-
-La Sección BETA funciona como un laboratorio digital donde se presentan herramientas, videos y proyectos antes de ser organizados en categorías específicas. Es un espacio para descubrir nuevas tecnologías y explorar ideas que aún están en desarrollo o evaluación.
-
-</p>
-
-</div>
+</section>
 
 </div>
 
 <footer>
-
-© 2026 PODER DIGITAL • Sección BETA • Innovación, aprendizaje y tecnología.
-
+<p>Soporte Poder Digital • Plantilla Virtual Futurista</p>
 </footer>
-
 </body>
 </html>
