@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PODER DIGITAL | Mundo Virtual</title>
+<title>PODER DIGITAL | Sección BETA</title>
+
+<meta name="description" content="Sección BETA de PODER DIGITAL. Un laboratorio de innovación con nuevas tecnologías, inteligencia artificial, aplicaciones, videos y recursos digitales.">
 
 <style>
 
@@ -16,531 +18,228 @@ font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-
-background:
-radial-gradient(circle at top,#16335e,#050816 70%);
-
-color:#ffffff;
-
-overflow-x:hidden;
-
+background:linear-gradient(180deg,#06101d,#0d1b2a,#07111d);
+color:#fff;
 }
-
-/* Fondo tecnológico */
-
-body::before{
-
-content:"";
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:
-
-linear-gradient(rgba(0,255,255,.05) 1px,transparent 1px),
-
-linear-gradient(90deg,rgba(0,255,255,.05) 1px,transparent 1px);
-
-background-size:40px 40px;
-
-animation:grid 15s linear infinite;
-
-pointer-events:none;
-
-}
-
-@keyframes grid{
-
-from{
-transform:translateY(0);
-}
-
-to{
-transform:translateY(40px);
-}
-
-}
-
-/* HEADER */
 
 header{
-
-padding:80px 20px;
-
+padding:60px 20px;
 text-align:center;
-
-border-bottom:2px solid cyan;
-
-box-shadow:0 0 30px cyan;
-
+background:radial-gradient(circle,#174a87 0%,#08111d 80%);
+border-bottom:1px solid rgba(255,255,255,.1);
 }
 
-header h1{
+.beta{
+display:inline-block;
+padding:8px 20px;
+border:2px solid #00d9ff;
+border-radius:40px;
+color:#00d9ff;
+font-weight:bold;
+letter-spacing:3px;
+box-shadow:0 0 20px #00d9ff55;
+margin-bottom:20px;
+}
 
-font-size:55px;
-
-color:#00ffff;
-
-text-shadow:
-
-0 0 10px cyan,
-
-0 0 30px cyan;
-
+h1{
+font-size:2.5rem;
+margin-bottom:15px;
 }
 
 header p{
-
-margin-top:15px;
-
-font-size:18px;
-
-color:#d9f9ff;
-
+max-width:800px;
+margin:auto;
+line-height:1.7;
+color:#d8e4ef;
 }
 
-/* MENÚ */
-
-nav{
-
-display:flex;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-gap:12px;
-
-padding:20px;
-
+.container{
+width:92%;
+max-width:1200px;
+margin:auto;
+padding:40px 0;
 }
-
-nav a{
-
-text-decoration:none;
-
-color:white;
-
-padding:12px 22px;
-
-border:1px solid cyan;
-
-border-radius:30px;
-
-transition:.4s;
-
-}
-
-nav a:hover{
-
-background:cyan;
-
-color:black;
-
-box-shadow:0 0 20px cyan;
-
-}
-
-/* BUSCADOR */
-
-.search{
-
-max-width:700px;
-
-margin:35px auto;
-
-padding:0 20px;
-
-}
-
-.search input{
-
-width:100%;
-
-padding:18px;
-
-background:#08101d;
-
-border:2px solid cyan;
-
-border-radius:50px;
-
-color:white;
-
-font-size:17px;
-
-}
-
-/* GRID */
 
 .grid{
-
 display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:25px;
-
-padding:30px;
-
-max-width:1300px;
-
-margin:auto;
-
 }
-
-/* TARJETAS */
 
 .card{
 
-background:rgba(20,35,60,.70);
-
-backdrop-filter:blur(12px);
-
+background:#10253d;
 border-radius:18px;
-
 overflow:hidden;
-
-border:1px solid rgba(0,255,255,.30);
-
-transition:.4s;
+border:1px solid rgba(255,255,255,.08);
+transition:.35s;
+box-shadow:0 10px 25px rgba(0,0,0,.35);
 
 }
 
 .card:hover{
-
 transform:translateY(-8px);
-
-box-shadow:
-
-0 0 30px cyan;
-
+box-shadow:0 20px 35px rgba(0,217,255,.2);
 }
 
-.card img{
-
+iframe{
 width:100%;
-
-aspect-ratio:16/9;
-
-object-fit:cover;
-
-}
-
-.card h2{
-
-padding:18px;
-
-color:#00ffff;
-
-}
-
-.card p{
-
-padding:0 18px 18px;
-
-color:#ddd;
-
-line-height:1.6;
-
-}
-
-.card a{
-
-display:block;
-
-margin:18px;
-
-padding:14px;
-
-text-align:center;
-
-text-decoration:none;
-
-font-weight:bold;
-
-border-radius:10px;
-
-background:linear-gradient(90deg,#00ffff,#6b3dff);
-
-color:white;
-
-}
-
-/* ACORDEÓN */
-
-details{
-
-margin:25px;
-
-background:#101a2d;
-
-border-radius:12px;
-
-border:1px solid #225;
-
-}
-
-summary{
-
-padding:20px;
-
-cursor:pointer;
-
-font-size:18px;
-
-font-weight:bold;
-
-color:#00ffff;
-
-}
-
-.acordeon{
-
-padding:20px;
-
-}
-
-/* NOTICIA */
-
-.news{
-
-margin:30px;
-
-padding:30px;
-
-background:rgba(15,20,40,.8);
-
-border-left:5px solid cyan;
-
-border-radius:15px;
-
-}
-
-/* VIDEO */
-
-.video{
-
-max-width:900px;
-
-margin:50px auto;
-
-padding:20px;
-
-}
-
-.video iframe{
-
-width:100%;
-
-aspect-ratio:16/9;
-
+height:220px;
 border:none;
+}
 
-border-radius:15px;
+.content{
+padding:20px;
+}
+
+.content h2{
+margin-bottom:12px;
+color:#00d9ff;
+}
+
+.content p{
+line-height:1.6;
+color:#d2dbe5;
+margin-bottom:18px;
+}
+
+.btn{
+
+display:inline-block;
+padding:12px 22px;
+background:#00d9ff;
+color:#00131c;
+font-weight:bold;
+text-decoration:none;
+border-radius:40px;
+transition:.3s;
 
 }
 
-/* FOOTER */
+.btn:hover{
+background:#6fefff;
+}
+
+.info{
+margin-top:60px;
+padding:30px;
+background:#0d2136;
+border-left:5px solid #00d9ff;
+border-radius:15px;
+line-height:1.8;
+}
 
 footer{
-
 margin-top:60px;
-
-padding:50px 20px;
-
+padding:25px;
 text-align:center;
+background:#050b13;
+color:#8ca0b5;
+font-size:.9rem;
+}
 
-background:black;
+@media(max-width:700px){
 
-color:#aaa;
+header{
+padding:45px 15px;
+}
+
+h1{
+font-size:2rem;
+}
+
+iframe{
+height:200px;
+}
 
 }
 
 </style>
 
 </head>
-
 <body>
 
 <header>
 
-<h1>🌐 PODER DIGITAL</h1>
+<div class="beta">🧪 SECCIÓN BETA</div>
 
-<p>Portal Virtual • Realidad Virtual • IA • 360° • Simuladores</p>
-
-</header>
-
-<nav>
-
-<a href="#">Inicio</a>
-
-<a href="#">Virtual</a>
-
-<a href="#">IA</a>
-
-<a href="#">360°</a>
-
-<a href="#">Recursos</a>
-
-<a href="#">Contacto</a>
-
-</nav>
-
-<div class="search">
-
-<input placeholder="Buscar experiencias virtuales...">
-
-</div>
-
-<div class="grid">
-
-
-
-
-<div class="card">
-
-<img src="https://picsum.photos/600/350?1" alt="Google Earth">
-
-<h2>🌍 Mundo 360°</h2>
-
-<p>Explora ciudades, montañas, océanos y monumentos del mundo en una experiencia inmersiva en 3D.</p>
-
-<a href="/seccion-virtual/google-earth.html">Explorar</a>
-
-</div>
-
-
-
-  
-
-<div class="card">
-
-<img src="https://picsum.photos/600/350?2">
-
-<h2>🥽 Realidad Virtual</h2>
-
-<p>Reemplaza este contenido por tus plataformas VR.</p>
-
-<a href="#">Entrar</a>
-
-</div>
-
-<div class="card">
-
-<img src="https://picsum.photos/600/350?3">
-
-<h2>🤖 Inteligencia Artificial</h2>
-
-<p>Herramientas, asistentes y aplicaciones de IA.</p>
-
-<a href="#">Descubrir</a>
-
-</div>
-
-<div class="card">
-
-<img src="https://picsum.photos/600/350?4">
-
-<h2>🛰️ Exploración</h2>
-
-<p>Mapas interactivos, satélites y simuladores.</p>
-
-<a href="#">Abrir</a>
-
-</div>
-
-</div>
-
-<details>
-
-<summary>🚀 "Intenta controlar el sentido del giro con tu percepción."</summary>
-
-<div class="acordeon">
-
-<section>
-
-
-
-<ul>
-  <li><a href="/seccion-virtual/perspectiva-facil.html"> 
-<span style="color:#ff7a00;">Perspectiva de profundidad (Intenta controlar la percepción del giro)</span> </a></li>
-
-
-
-
-
-  <li><a href="/seccion-virtual/perspectiva2.html">
-<span style="color:#ffd700;">Perspectiva de profundidad (Nueva imagen para controlar la percepción del giro)</span></a></li>
-
-  <li><a href="/seccion-virtual/perspectiva-de-profundidad.html">
-<span style="color:#ffb000;">Perspectiva de profundidad (Intenta controlar la percepción del giro)</span></a></li>
-
-
-  <li><a href="/seccion-libre/yourlearn-ai.html">YourLearn AI (Analisis Optimizado de Informacion con inteligencia artificial)</a></li>
-  <li><a href="/seccion-libre/skywork-ai.html">Skywork AI (Automatizar procesos con inteligencia artificial)</a></li>
-
-  <li><a href="/seccion-libre/napkin-ai.html">Napkin AI (Presentaciones Automaticas con inteligencia artificial)</a></li>
-  <li><a href="/seccion-libre/oreate-ai.html">Oreate AI (Informes y Presentaciones estructuradas con inteligencia artificial)</a></li>
-
- <li><a href="/seccion-libre/arcads-3punto0.html">Arcads 3.0 (Comerciales profesionales con inteligencia artificial)</a></li>
-
-
-</ul>
-
-</section>
-</div>
-
-</details>
-
-<details>
-
-<summary>🧠 INTELIGENCIA ARTIFICIAL</summary>
-
-<div class="acordeon">
-
-<p>Aquí puedes agregar ChatGPT, Gemini, Claude, Kimi, DeepSeek y cualquier otra herramienta.</p>
-
-</div>
-
-</details>
-
-<section class="news">
-
-<h2>🌐 Mundo Virtual</h2>
+<h1>Laboratorio de Innovación</h1>
 
 <p>
 
-Bienvenido a la sección Virtual de Soporte Poder Digital.
+Bienvenido a la Sección BETA de <strong>PODER DIGITAL</strong>.
 
-Explora nuevas tecnologías, inteligencia artificial, realidad virtual,
-
-recorridos 360°, simuladores y recursos digitales.
+Aquí se publican las novedades más recientes antes de clasificarlas en una categoría definitiva. Encontrarás inteligencia artificial, aplicaciones, recursos digitales, experimentos, videos y tecnologías que podrían formar parte del futuro del sitio.
 
 </p>
 
-</section>
+</header>
 
-<div class="video">
+<div class="container">
 
-<iframe src="https://www.youtube-nocookie.com/embed/eW2qlKa6oHw" allowfullscreen></iframe>
+<div class="grid">
+
+<div class="card">
+
+<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+allowfullscreen></iframe>
+
+<div class="content">
+
+<h2>Nuevo Descubrimiento</h2>
+
+<p>
+
+Descripción breve del video. Explica qué hace esta herramienta, por qué es interesante y cómo puede ayudar a los usuarios.
+
+</p>
+
+<a href="#" class="btn">Más información</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<iframe src="https://www.youtube.com/embed/ysz5S6PUM-U"
+allowfullscreen></iframe>
+
+<div class="content">
+
+<h2>Tecnología Experimental</h2>
+
+<p>
+
+Cada publicación de esta sección puede pertenecer a cualquier área: IA, realidad virtual, aplicaciones, diseño, programación, educación o innovación.
+
+</p>
+
+<a href="#" class="btn">Explorar</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="info">
+
+<h2 style="color:#00d9ff;margin-bottom:15px;">¿Qué es la Sección BETA?</h2>
+
+<p>
+
+La Sección BETA funciona como un laboratorio digital donde se presentan herramientas, videos y proyectos antes de ser organizados en categorías específicas. Es un espacio para descubrir nuevas tecnologías y explorar ideas que aún están en desarrollo o evaluación.
+
+</p>
+
+</div>
 
 </div>
 
 <footer>
 
-<h3>Soporte Poder Digital</h3>
-
-<p>
-
-Directorio informativo de herramientas y recursos digitales.
-
-</p>
+© 2026 PODER DIGITAL • Sección BETA • Innovación, aprendizaje y tecnología.
 
 </footer>
 
