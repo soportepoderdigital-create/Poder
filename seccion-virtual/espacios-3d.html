@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HomeByMe | Diseño de interiores y espacios en 3D</title>
+
+  <meta name="description"
+        content="Información sobre HomeByMe, herramienta online para diseñar espacios, crear planos y visualizar proyectos de interiores en 2D y 3D.">
+
+  <meta name="robots" content="index, follow">
+
+  <style>
+    :root {
+      --naranja: #ff7a00;
+      --oscuro: #111;
+      --gris: #f4f4f4;
+      --texto: #333;
+      --blanco: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--gris);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--oscuro);
+      color: var(--blanco);
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 4px solid var(--naranja);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 10px auto 0;
+      max-width: 700px;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 18px;
+    }
+
+    .card {
+      background: var(--blanco);
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: var(--oscuro);
+      margin-top: 0;
+    }
+
+    .destacado {
+      border-left: 5px solid var(--naranja);
+      background: #fff8f1;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .datos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .dato {
+      background: #f8f8f8;
+      padding: 18px;
+      border-radius: 10px;
+    }
+
+    .dato strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--oscuro);
+    }
+
+    .boton {
+      display: inline-block;
+      background: var(--naranja);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 13px 22px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .boton:hover {
+      opacity: 0.9;
+    }
+
+    .aviso {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer {
+      background: var(--oscuro);
+      color: white;
+      text-align: center;
+      padding: 25px 18px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🏠 HomeByMe</h1>
+  <p>
+    Herramienta online para diseñar y visualizar espacios en 2D y 3D.
+  </p>
+</header>
+
+<main>
+
+  <section class="card">
+    <h2>¿Qué es HomeByMe?</h2>
+
+    <p>
+      HomeByMe es una plataforma online orientada al diseño y planificación
+      de espacios. Permite crear proyectos de interiores, elaborar planos y
+      visualizar diferentes ambientes en 3D.
+    </p>
+
+    <p>
+      Puede ser utilizada para experimentar con la distribución de muebles,
+      decoración y diferentes configuraciones antes de llevar un proyecto
+      a la realidad.
+    </p>
+
+    <div class="destacado">
+      💡 <strong>¿Para quién puede ser útil?</strong><br>
+      Para personas interesadas en decoración, diseño de interiores,
+      planificación de viviendas, arquitectura, remodelaciones o
+      visualización de espacios.
+    </div>
+  </section>
+
+
+  <section class="card">
+    <h2>🛠️ ¿Qué puedes hacer?</h2>
+
+    <div class="datos">
+
+      <div class="dato">
+        <strong>📐 Planificación</strong>
+        Crear y organizar la distribución de diferentes espacios.
+      </div>
+
+      <div class="dato">
+        <strong>🪑 Mobiliario</strong>
+        Incorporar muebles y elementos decorativos a los proyectos.
+      </div>
+
+      <div class="dato">
+        <strong>🏠 Diseño 3D</strong>
+        Visualizar los espacios diseñados en tres dimensiones.
+      </div>
+
+      <div class="dato">
+        <strong>🎨 Decoración</strong>
+        Probar diferentes estilos y configuraciones para un ambiente.
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="card">
+    <h2>💰 Acceso y condiciones</h2>
+
+    <p>
+      HomeByMe ofrece funcionalidades que pueden utilizarse mediante una
+      cuenta y dispone de opciones gratuitas y servicios o funciones
+      adicionales de pago.
+    </p>
+
+    <p>
+      Las características disponibles, límites, precios y condiciones pueden
+      cambiar con el tiempo. Antes de utilizar una función de pago, se
+      recomienda revisar directamente las condiciones vigentes en el sitio
+      oficial.
+    </p>
+
+    <p class="aviso">
+      ⚠️ <strong>Importante:</strong> Poder Digital no vende, administra ni
+      controla los servicios de HomeByMe. Esta página tiene únicamente fines
+      informativos y educativos.
+    </p>
+  </section>
+
+
+  <section class="card">
+    <h2>🔗 Sitio oficial</h2>
+
+    <p>
+      Para conocer las funciones actuales, crear una cuenta o consultar las
+      condiciones de uso, visita directamente el sitio oficial:
+    </p>
+
+    <a
+      class="boton"
+      href="https://home.by.me/es/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      VISITAR HOME BY ME ↗
+    </a>
+
+    <p class="aviso">
+      El enlace dirige al sitio oficial de HomeByMe.
+    </p>
+  </section>
+
+
+  <section class="card">
+    <h2>ℹ️ Sobre esta información</h2>
+
+    <p>
+      Esta ficha fue elaborada por <strong>Poder Digital</strong> con
+      finalidad informativa. La inclusión de HomeByMe no implica una
+      asociación, patrocinio, recomendación comercial ni representación
+      oficial.
+    </p>
+
+    <p>
+      Los nombres, marcas, logotipos y servicios mencionados pertenecen a
+      sus respectivos titulares.
+    </p>
+
+    <p class="aviso">
+      📅 Información revisada: agosto de 2026.
+    </p>
+  </section>
+
+</main>
+
+
+<footer>
+  <p>
+    <strong>PODER DIGITAL</strong><br>
+    Directorio Informativo de Soporte y Recursos Digitales
+  </p>
+
+  <p>
+    Información independiente con fines educativos e informativos.
+  </p>
+</footer>
+
+</body>
+</html>
