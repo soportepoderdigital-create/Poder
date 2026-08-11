@@ -108,13 +108,26 @@
       margin-top: 10px;
     }
 
-    .boton:hover {
-      opacity: 0.9;
-    }
-
     .aviso {
       font-size: 0.9rem;
       color: #555;
+    }
+
+    /* VIDEO TIKTOK */
+    .video-tiktok {
+      max-width: 360px;
+      margin: 30px auto;
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #000;
+    }
+
+    .video-tiktok iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
     }
 
     footer {
@@ -125,10 +138,6 @@
       margin-top: 40px;
     }
 
-    footer a {
-      color: white;
-    }
-
     @media (max-width: 600px) {
       header h1 {
         font-size: 1.6rem;
@@ -136,6 +145,10 @@
 
       .card {
         padding: 20px;
+      }
+
+      .video-tiktok {
+        max-width: 100%;
       }
     }
   </style>
@@ -173,6 +186,17 @@
       planificación de viviendas, arquitectura, remodelaciones o
       visualización de espacios.
     </div>
+  </section>
+
+
+  <!-- VIDEO TIKTOK -->
+  <section class="video-tiktok">
+    <iframe
+      src="https://www.tiktok.com/player/v1/7502445044113132806"
+      loading="lazy"
+      allow="fullscreen"
+      title="Video de HomeByMe en TikTok">
+    </iframe>
   </section>
 
 
@@ -221,6 +245,13 @@
       oficial.
     </p>
 
+    <p class="aviso">
+      ⚠️ <strong>Importante:</strong> Poder Digital no vende, administra ni
+      controla los servicios de HomeByMe. Esta página tiene únicamente fines
+      informativos y educativos.
+    </p>
+  </section>
+
 
   <section class="card">
     <h2>🔗 Sitio oficial</h2>
@@ -234,8 +265,7 @@
       class="boton"
       href="https://home.by.me/es/"
       target="_blank"
-      rel="noopener noreferrer"
-    >
+      rel="noopener noreferrer">
       VISITAR HOME BY ME ↗
     </a>
 
@@ -244,22 +274,6 @@
     </p>
   </section>
 
-<section style="max-width:400px;margin:30px auto;">
-  <blockquote
-    class="tiktok-embed"
-    cite="https://www.tiktok.com/@homebymeofficial/video/7502445044113132806"
-    data-video-id="7502445044113132806"
-    style="max-width:100%;min-width:280px;">
-  </blockquote>
-</section>
-
-<script async src="https://www.tiktok.com/embed.js"></script>
-    <p class="aviso">
-      ⚠️ <strong>Importante:</strong> Poder Digital no vende, administra ni
-      controla los servicios de HomeByMe. Esta página tiene únicamente fines
-      informativos y educativos.
-    </p>
-  </section>
 
   <section class="card">
     <h2>ℹ️ Sobre esta información</h2>
